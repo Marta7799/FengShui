@@ -2,67 +2,104 @@
 <html lang="pl">
 <head>
   <meta charset="UTF-8">
+  <link rel="shortcut icon" href="./favicon.png">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Kalkulator Feng Shui</title>
+  <title>White Lotus</title>
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap');
+
     body {
-      font-family: Arial, sans-serif;
-      background: #f0f4f8;
-      padding: 20px;
-      max-width: 800px;
-      margin: auto;
+      font-family: 'Quicksand', sans-serif;
+      /* background: #e6e6e6; */
+      background-image: url(./tlo2.avif);
+      color: #333;
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-size: cover;
+      background-position: center;
     }
 
     h1 {
       text-align: center;
-      color: #2c3e50;
+      color: #c62828;
+      font-size: 2.5em;
+      margin-bottom: 20px;
     }
 
+    .container {
+      /* background: linear-gradient(135deg, #fafcfb,); */
+      background: linear-gradient(135deg, rgba(250, 252, 251, 0.3), rgba(224, 224, 224, 0.3));
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 600px;
+      position: relative;
+      overflow: hidden;
+    }
+/* 
+    .container::before {
+      content: '';
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      width: 100%;
+      height: 100%;
+      background: url('./logo.png') no-repeat center center;
+      background-size: contain;
+      opacity: 0.2;
+      z-index: -1;
+    } */
+
     form {
-      background: #fff;
-      padding: 20px;
-      border-radius: 8px;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      display: flex;
+      flex-direction: column;
     }
 
     label {
-      display: block;
-      margin-top: 10px;
-      font-weight: bold;
+      margin-bottom: 8px;
+      font-weight: 600;
+      color: #c62828;
     }
 
     input, select {
-      width: 100%;
-      padding: 8px;
-      margin-top: 5px;
-      border-radius: 4px;
+      padding: 10px;
+      margin-bottom: 15px;
       border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 1em;
     }
 
     button {
-      margin-top: 20px;
-      padding: 10px 20px;
-      background-color: #3498db;
+      padding: 12px;
+      background-color: #78909c;
       color: white;
       border: none;
-      border-radius: 4px;
+      border-radius: 8px;
       cursor: pointer;
+      font-size: 1.1em;
+      transition: background-color 0.3s;
     }
 
     button:hover {
-      background-color: #2980b9;
+      background-color: #607d8b;
     }
 
     .result-section {
       margin-top: 20px;
       padding: 15px;
-      background: #e9f7ef;
-      border-left: 5px solid #2ecc71;
-      border-radius: 5px;
+      background: #f9f9f9;
+      border-left: 5px solid #c9a036;
+      border-radius: 8px;
     }
 
     .highlight {
-      color: #e74c3c;
+      color: #c9a036;
+      font-weight: bold;
     }
 
     ul {
@@ -72,182 +109,153 @@
 </head>
 <body>
 
-  <h1>Kalkulator Feng Shui</h1>
+  <div class="container">
+    <h1>Kalkulator Feng Shui</h1>
 
-  <form onsubmit="event.preventDefault(); calculateFengShuiProfile();">
-    <label for="birthYear">Rok urodzenia:</label>
-    <input type="number" id="birthYear" required>
+    <form onsubmit="event.preventDefault(); calculateFengShuiProfile();">
+      <label for="birthYear">Rok urodzenia:</label>
+      <input type="number" id="birthYear" required>
 
-    <label for="birthMonth">Miesiąc urodzenia:</label>
-    <input type="number" id="birthMonth" required>
+      <label for="birthMonth">Miesiąc urodzenia:</label>
+      <input type="number" id="birthMonth" required>
 
-    <label for="birthDay">Dzień urodzenia:</label>
-    <input type="number" id="birthDay" required>
+      <label for="birthDay">Dzień urodzenia:</label>
+      <input type="number" id="birthDay" required>
 
-    <label for="gender">Płeć:</label>
-    <select id="gender" required>
-      <option value="male">Mężczyzna</option>
-      <option value="female">Kobieta</option>
-    </select>
+      <label for="gender">Płeć:</label>
+      <select id="gender" required>
+        <option value="male">Mężczyzna</option>
+        <option value="female">Kobieta</option>
+      </select>
 
-    <button type="submit">Oblicz profil</button>
-  </form>
+      <button type="submit">Oblicz profil</button>
+    </form>
 
-  <div id="results" style="display:none; margin-top:30px;"></div>
+    <div id="results" style="display:none; margin-top:30px;"></div>
+  </div>
 
   <script>
-function calculateFengShuiProfile() {
-  // Pobranie danych z formularza
-  const birthYear = parseInt(document.getElementById('birthYear').value);
-  const birthMonth = parseInt(document.getElementById('birthMonth').value);
-  const birthDay = parseInt(document.getElementById('birthDay').value);
-  const gender = document.getElementById('gender').value;
-  
-  // Obliczanie chińskiego znaku zodiaku
-  const zodiacSign = calculateChineseZodiac(birthYear);
-  
-  // Obliczanie elementu urodzeniowego
-  const birthElement = calculateBirthElement(birthYear);
-  
-  // Obliczanie osobistej liczby Kua
-  const kuaNumber = calculateKuaNumber(birthYear, gender);
-  
-  // Określanie korzystnych kierunków na podstawie liczby Kua
-  const favorableDirections = getFavorableDirections(kuaNumber);
-  
-  // Określanie niekorzystnych kierunków
-  const unfavorableDirections = getUnfavorableDirections(kuaNumber);
-  
-  // Rekomendowane kolory na podstawie elementu urodzeniowego
-  const recommendedColors = getRecommendedColors(birthElement);
-  
-  // Wyświetlanie wyników
-  displayResults(zodiacSign, birthElement, kuaNumber, favorableDirections, unfavorableDirections, recommendedColors);
-}
+    function calculateFengShuiProfile() {
+      const birthYear = parseInt(document.getElementById('birthYear').value);
+      const birthMonth = parseInt(document.getElementById('birthMonth').value);
+      const birthDay = parseInt(document.getElementById('birthDay').value);
+      const gender = document.getElementById('gender').value;
 
-function calculateChineseZodiac(year) {
-  const zodiacSigns = ["Szczur", "Wół", "Tygrys", "Królik", "Smok", "Wąż", "Koń", "Koza", "Małpa", "Kogut", "Pies", "Świnia"];
-  return zodiacSigns[(year - 4) % 12];
-}
+      const zodiacSign = calculateChineseZodiac(birthYear);
+      const birthElement = calculateBirthElement(birthYear);
+      const kuaNumber = calculateKuaNumber(birthYear, gender);
+      const favorableDirections = getFavorableDirections(kuaNumber);
+      const unfavorableDirections = getUnfavorableDirections(kuaNumber);
+      const recommendedColors = getRecommendedColors(birthElement);
 
-function calculateBirthElement(year) {
-  const remainder = year % 10;
-  const elements = {
-    0: "Metal", 1: "Metal",
-    2: "Woda", 3: "Woda",
-    4: "Drewno", 5: "Drewno",
-    6: "Ogień", 7: "Ogień",
-    8: "Ziemia", 9: "Ziemia"
-  };
-  return elements[remainder];
-}
-
-function calculateKuaNumber(year, gender) {
-  // Pobranie ostatniej cyfry roku urodzenia
-  const lastDigit = year % 10;
-  
-  if (gender === "female") {
-    // Dla kobiet: dodaj 5 do ostatniej cyfry, jeśli suma > 9, dodaj cyfry
-    let sum = lastDigit + 5;
-    if (sum > 9) {
-      sum = Math.floor(sum / 10) + (sum % 10);
+      displayResults(zodiacSign, birthElement, kuaNumber, favorableDirections, unfavorableDirections, recommendedColors);
     }
-    return sum === 5 ? 8 : sum;
-  } else {
-    // Dla mężczyzn: odejmij ostatnią cyfrę od 10
-    let result = 10 - lastDigit;
-    if (result === 5) {
-      return 2;
+
+    function calculateChineseZodiac(year) {
+      const zodiacSigns = ["Szczur", "Wół", "Tygrys", "Królik", "Smok", "Wąż", "Koń", "Koza", "Małpa", "Kogut", "Pies", "Świnia"];
+      return zodiacSigns[(year - 4) % 12];
     }
-    if (result === 10) {
-      return 1;
+
+    function calculateBirthElement(year) {
+      const remainder = year % 10;
+      const elements = {
+        0: "Metal", 1: "Metal",
+        2: "Woda", 3: "Woda",
+        4: "Drewno", 5: "Drewno",
+        6: "Ogień", 7: "Ogień",
+        8: "Ziemia", 9: "Ziemia"
+      };
+      return elements[remainder];
     }
-    return result;
-  }
-}
 
-function getFavorableDirections(kuaNumber) {
-  const favorableDirectionsMap = {
-    1: ["Północ", "Południe", "Wschód", "Południowy Wschód"],
-    2: ["Północny Wschód", "Zachód", "Południowy Zachód", "Północny Zachód"],
-    3: ["Południe", "Wschód", "Północ", "Południowy Wschód"],
-    4: ["Południe", "Wschód", "Północ", "Południowy Wschód"],
-    6: ["Północny Zachód", "Zachód", "Północny Wschód", "Południowy Zachód"],
-    7: ["Północny Zachód", "Zachód", "Północny Wschód", "Południowy Zachód"],
-    8: ["Północny Wschód", "Zachód", "Południowy Zachód", "Północny Zachód"],
-    9: ["Północ", "Południe", "Wschód", "Południowy Wschód"]
-  };
-  
-  return favorableDirectionsMap[kuaNumber] || [];
-}
+    function calculateKuaNumber(year, gender) {
+      const lastDigit = year % 10;
+      if (gender === "female") {
+        let sum = lastDigit + 5;
+        if (sum > 9) {
+          sum = Math.floor(sum / 10) + (sum % 10);
+        }
+        return sum === 5 ? 8 : sum;
+      } else {
+        let result = 10 - lastDigit;
+        if (result === 5) return 2;
+        if (result === 10) return 1;
+        return result;
+      }
+    }
 
-function getUnfavorableDirections(kuaNumber) {
-  const unfavorableDirectionsMap = {
-    1: ["Południowy Zachód", "Północny Zachód", "Zachód", "Północny Wschód"],
-    2: ["Południe", "Północ", "Południowy Wschód", "Wschód"],
-    3: ["Południowy Zachód", "Północny Zachód", "Zachód", "Północny Wschód"],
-    4: ["Południowy Zachód", "Północny Zachód", "Zachód", "Północny Wschód"],
-    6: ["Południe", "Północ", "Południowy Wschód", "Wschód"],
-    7: ["Południe", "Północ", "Południowy Wschód", "Wschód"],
-    8: ["Południe", "Północ", "Południowy Wschód", "Wschód"],
-    9: ["Południowy Zachód", "Północny Zachód", "Zachód", "Północny Wschód"]
-  };
-  
-  return unfavorableDirectionsMap[kuaNumber] || [];
-}
+    function getFavorableDirections(kuaNumber) {
+      const favorableDirectionsMap = {
+        1: ["Północ", "Południe", "Wschód", "Południowy Wschód"],
+        2: ["Północny Wschód", "Zachód", "Południowy Zachód", "Północny Zachód"],
+        3: ["Południe", "Wschód", "Północ", "Południowy Wschód"],
+        4: ["Południe", "Wschód", "Północ", "Południowy Wschód"],
+        6: ["Północny Zachód", "Zachód", "Północny Wschód", "Południowy Zachód"],
+        7: ["Północny Zachód", "Zachód", "Północny Wschód", "Południowy Zachód"],
+        8: ["Północny Wschód", "Zachód", "Południowy Zachód", "Północny Zachód"],
+        9: ["Północ", "Południe", "Wschód", "Południowy Wschód"]
+      };
+      return favorableDirectionsMap[kuaNumber] || [];
+    }
 
-function getRecommendedColors(element) {
-  const colorRecommendations = {
-    "Metal": ["Biały", "Złoty", "Srebrny", "Szary"],
-    "Woda": ["Niebieski", "Czarny", "Granatowy"],
-    "Drewno": ["Zielony", "Brązowy", "Turkusowy"],
-    "Ogień": ["Czerwony", "Pomarańczowy", "Fioletowy", "Różowy"],
-    "Ziemia": ["Żółty", "Beżowy", "Terakota"]
-  };
-  
-  return colorRecommendations[element] || [];
-}
+    function getUnfavorableDirections(kuaNumber) {
+      const unfavorableDirectionsMap = {
+        1: ["Południowy Zachód", "Północny Zachód", "Zachód", "Północny Wschód"],
+        2: ["Południe", "Północ", "Południowy Wschód", "Wschód"],
+        3: ["Południowy Zachód", "Północny Zachód", "Zachód", "Północny Wschód"],
+        4: ["Południowy Zachód", "Północny Zachód", "Zachód", "Północny Wschód"],
+        6: ["Południe", "Północ", "Południowy Wschód", "Wschód"],
+        7: ["Południe", "Północ", "Południowy Wschód", "Wschód"],
+        8: ["Południe", "Północ", "Południowy Wschód", "Wschód"],
+        9: ["Południowy Zachód", "Północny Zachód", "Zachód", "Północny Wschód"]
+      };
+      return unfavorableDirectionsMap[kuaNumber] || [];
+    }
 
-function displayResults(zodiacSign, birthElement, kuaNumber, favorableDirections, unfavorableDirections, recommendedColors) {
-  const resultsDiv = document.getElementById('results');
-  
-  resultsDiv.innerHTML = `
-    <h2>Twój profil Feng Shui</h2>
-    <div class="result-section">
-      <h3>Chiński znak zodiaku: <span class="highlight">${zodiacSign}</span></h3>
-      <p>Twój element urodzeniowy: <strong>${birthElement}</strong></p>
-      <p>Twoja liczba Kua: <strong>${kuaNumber}</strong></p>
-    </div>
-    
-    <div class="result-section">
-      <h3>Korzystne kierunki:</h3>
-      <ul>
-        ${favorableDirections.map(dir => `<li>${dir}</li>`).join('')}
-      </ul>
-      <p><em>Wykorzystaj te kierunki dla swojego łóżka, biurka, kanapy i miejsc, gdzie spędzasz dużo czasu.</em></p>
-    </div>
-    
-    <div class="result-section">
-      <h3>Niekorzystne kierunki:</h3>
-      <ul>
-        ${unfavorableDirections.map(dir => `<li>${dir}</li>`).join('')}
-      </ul>
-      <p><em>Unikaj tych kierunków dla ważnych mebli i często używanych przestrzeni.</em></p>
-    </div>
-    
-    <div class="result-section">
-      <h3>Zalecane kolory:</h3>
-      <ul>
-        ${recommendedColors.map(color => `<li>${color}</li>`).join('')}
-      </ul>
-      <p><em>Te kolory wzmocnią Twoją naturalną energię.</em></p>
-    </div>
-  `;
-  
-  resultsDiv.style.display = 'block';
-}
+    function getRecommendedColors(element) {
+      const colorRecommendations = {
+        "Metal": ["Biały", "Złoty", "Srebrny", "Szary"],
+        "Woda": ["Niebieski", "Czarny", "Granatowy"],
+        "Drewno": ["Zielony", "Brązowy", "Turkusowy"],
+        "Ogień": ["Czerwony", "Pomarańczowy", "Fioletowy", "Różowy"],
+        "Ziemia": ["Żółty", "Beżowy", "Terakota"]
+      };
+      return colorRecommendations[element] || [];
+    }
+
+    function displayResults(zodiacSign, birthElement, kuaNumber, favorableDirections, unfavorableDirections, recommendedColors) {
+      const resultsDiv = document.getElementById('results');
+      resultsDiv.innerHTML = `
+        <h2>Twój profil Feng Shui</h2>
+        <div class="result-section">
+          <h3>Chiński znak zodiaku: <span class="highlight">${zodiacSign}</span></h3>
+          <p>Twój element urodzeniowy: <strong>${birthElement}</strong></p>
+          <p>Twoja liczba Kua: <strong>${kuaNumber}</strong></p>
+        </div>
+
+        <div class="result-section">
+          <h3>Korzystne kierunki:</h3>
+          <ul>
+            ${favorableDirections.map(dir => `<li>${dir}</li>`).join('')}
+          </ul>
+        </div>
+
+        <div class="result-section">
+          <h3>Niekorzystne kierunki:</h3>
+          <ul>
+            ${unfavorableDirections.map(dir => `<li>${dir}</li>`).join('')}
+          </ul>
+        </div>
+
+        <div class="result-section">
+          <h3>Zalecane kolory:</h3>
+          <ul>
+            ${recommendedColors.map(color => `<li>${color}</li>`).join('')}
+          </ul>
+        </div>
+      `;
+      resultsDiv.style.display = 'block';
+    }
   </script>
-
 </body>
 </html>
-
