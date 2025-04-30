@@ -1,306 +1,433 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Quicksand:wght@400;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Quicksand:wght@400;600;700&display=swap");
 * {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    line-height: 1.4em;
-    vertical-align: baseline;
-    text-decoration: none;
-    outline: 0;
-    }
-    /* Globalne style */
-    body {
-      font-family: 'Quicksand', sans-serif;
-      background-image: url(../images/tlo\ 2.png);
-      color: #333;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      background-size: cover;
-      background-position: center;
-      overflow: auto;
-    }
+  margin: 0;
+  padding: 0;
+  border: 0;
+  line-height: 1.4em;
+  vertical-align: baseline;
+  text-decoration: none;
+  outline: 0;
+}
+/* Globalne style */
+body {
+  font-family: "Cormorant Garamond", sans-serif;
+  background-image: url(../images/tlo.jpg);
+  color: #333;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
 
-    /* Nagłówek */
-    header {
-      position: relative;
-      width: 90%;
-      margin-top: 30px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
+/* Nagłówek */
+header {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
-    .custom-header {
-      background-image: url(../images/header.png);
-      background-size:cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      height: auto;
-      min-height: 200px; 
-      width: 100%;
-      display: flex;
-      align-items: center;
-      position: relative;
-      /* z-index: 1; */
+.custom-header {
+  /* background: linear-gradient(
+    135deg,
+    rgba(250, 252, 251, 0.3),
+    rgba(224, 224, 224, 0.3)
+  ); */
+  height: auto;
+  min-height: 200px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+.custom-header:hover {
+  background: linear-gradient(
+    to top,
+    rgba(200, 200, 200, 0.5),
+    rgba(100, 100, 100, 0.5)
+  );
+}
+.custom-footer {
+  display: none;
+  background: linear-gradient(
+    135deg,
+    rgba(250, 252, 251, 0.3),
+    rgba(224, 224, 224, 0.3)
+  );
+  height: auto;
+  min-height: 200px;
+  width: 100%;
+  /* display: flex; */
+  align-items: center;
+  position: relative;
+}
+.logo-container {
+  padding-left: 20px;
+  display: flex;
+  align-items: center;
+}
 
-    }
+.logo-container img {
+  height: auto;
+  max-height: 150px;
+  width: auto;
+  max-width: 80%;
+  border-radius: 5%;
+}
 
-    .logo-container {
-      padding-left: 20px;
-      display: flex;
-      align-items: center;
-    }
+.header-links {
+  width: 100%;
+  position: absolute;
+  bottom: 10px;
+  display: flex;
+  justify-content: end;
+}
 
-    .logo-container img {
-    height: auto;
-      max-height: 150px;
-      width: auto;
-      max-width: 80%;
-      border-radius: 5%;
-    }
+.header-links a {
+  margin-left: 20px;
+  margin-right: 20px;
+  color: black;
+  font-weight: bold;
+  font-size: 25px;
+}
 
-    .header-links {
-      width: 100%;
-      position: absolute;
-      bottom: 10px;
-      display: flex;
-      justify-content: center;
-    }
-
-    .header-links a {
-      margin-left: 20px;
-      margin-right: 20px;
-      color: #c9a036;
-      font-weight: bold;
-      font-size: 20px;
-    }
-
-    .header-links a:hover {
-      color: #607d8b;
-    }
-    /* Stylizacja hamburgera */
+.header-links a:hover {
+  color: #607d8b;
+}
+.links-wrapper {
+  margin-right: 30px;
+}
+.main-content {
+  width: 100%;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.aboutFengShui {
+  background: rgba(47, 51, 30, 0.7);
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 150px;
+}
+.text-Fengshui {
+  margin: 20px;
+  color: white;
+  font-size: 20px;
+}
+.img-Fengshui {
+  display: flex;
+  align-items: center;
+}
+/* Stylizacja hamburgera */
 .hamburger {
-    display: none;
-    flex-direction: column;
-    cursor: pointer;
-    justify-content: space-between;
-    width: 30px;
-    height: 25px;
-    position: absolute;
-    top: 25px;
-    right: 25px;
-    z-index: 100; /* żeby był nad innymi elementami */
-  }
-  
-  .hamburger .bar {
-    background-color: #c9a036;
-    height: 5px;
-    width: 100%;
-    border-radius: 5px;
-  }
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  justify-content: space-between;
+  width: 30px;
+  height: 25px;
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  z-index: 100; /* żeby był nad innymi elementami */
+}
 
-    /* Styl dla nagłówka */
-    h1 {
-      text-align: center;
-      color: #c62828;
-      font-size: 30px;
-      margin-bottom: 20px;
-      font-family: 'Cormorant Garamond', serif;
-    }
+.hamburger .bar {
+  background-color: #c9a036;
+  height: 5px;
+  width: 100%;
+  border-radius: 5px;
+}
 
-    /* Formularz kalkulatora */
-    .container, #results {
-      background: linear-gradient(135deg, rgba(250, 252, 251, 0.3), rgba(224, 224, 224, 0.3));
-      padding: 30px;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-      width: 100%;
-      max-width: 400px;
-      margin-top: 30px;
-      display: flex;
+/* Styl dla nagłówka */
+h1 {
+  text-align: center;
+  color: #c62828;
+  font-size: 30px;
+  margin-bottom: 20px;
+  font-family: "Cormorant Garamond", serif;
+}
+
+/* Formularz kalkulatora */
+.container,
+#results {
+  background: linear-gradient(
+    135deg,
+    rgba(250, 252, 251, 0.3),
+    rgba(224, 224, 224, 0.3)
+  );
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  display: flex;
   flex-direction: column;
   text-align: left;
-    }
+}
 
-    form {
-      display: flex;
-      flex-direction: column;
-    }
+form {
+  display: flex;
+  flex-direction: column;
+}
 
-    label {
-      margin-bottom: 8px;
-      font-weight: 600;
-      color: #c62828;
-    }
+label {
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #c62828;
+}
 
-    input, select {
-      padding: 10px;
-      margin-bottom: 15px;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      font-size: 1em;
-    }
+input,
+select {
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1em;
+}
 
-    button {
-      padding: 12px;
-      background-color: #78909c;
-      color: white;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      font-size: 1.1em;
-      transition: background-color 0.3s;
-    }
+button {
+  padding: 12px;
+  background-color: #78909c;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1.1em;
+  transition: background-color 0.3s;
+}
 
-    button:hover {
-      background-color: #607d8b;
-    }
+button:hover {
+  background-color: #607d8b;
+}
 
-    /* Sekcje wyników */
-    #results {
-        width: 100%;
-        max-width: 350px;  
-        margin-top: 30px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;  /* Wyśrodkowanie wyników */
-        padding: 20px;
-        background-color: #fff;
-        border-radius: 12px;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-      }
-    .result-section {
-      margin-top: 20px;
-      padding: 15px;
-      background: #f9f9f9;
-      border-left: 5px solid #c9a036;
-      border-radius: 8px;
-    }
+/* Sekcje wyników */
+#results {
+  width: 100%;
+  max-width: 350px;
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Wyśrodkowanie wyników */
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+.result-section {
+  margin-top: 20px;
+  padding: 15px;
+  background: #f9f9f9;
+  border-left: 5px solid #c9a036;
+  border-radius: 8px;
+}
 
-    .highlight {
-      color: #c9a036;
-      font-weight: bold;
-    }
+.highlight {
+  color: #c9a036;
+  font-weight: bold;
+}
 
-    ul {
-      padding-left: 20px;
-    }
+/* ul {
+  padding-left: 20px;
+} */
 
-    /* Style dla okien modalnych */
-    .modal {
-      display: none;
-      position: fixed;
-      z-index: 1000;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      overflow: auto;
-      background-color: rgba(0,0,0,0.4);
-    }
+/* Style dla okien modalnych */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+}
 
-    .modal-content {
-      background-color: #fefefe;
-      margin: 15% auto;
-      padding: 20px;
-      border: 1px solid #888;
-      width: 80%;
-      max-width: 500px;
-    }
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 500px;
+}
 
-    .close {
-      color: #aaa;
-      float: right;
-      font-size: 28px;
-      font-weight: bold;
-    }
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
 
-    .close:hover,
-    .close:focus {
-      color: black;
-      text-decoration: none;
-      cursor: pointer;
-    }
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
 
-    /* mobile devices styles */
-    @media (max-width: 768px) {
-        body {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: auto;
-            min-height: 100vh;
+/* mobile devices styles */
+@media (max-width: 1024px) {
+  body {
+    background-image: url(../images/tlo-tablet.png);
+    background-size: cover;
+    /* background-position: center; */
+    background-repeat: no-repeat;
+  }
+  .container,
+  #results {
+    width: 90%;
+    max-width: 350px;
+    padding: 20px;
+  }
 
-          }
-        
-          /* Dostosowanie nagłówka */
-          /* .custom-header { */
-            /* height: 0px; */
-            /* justify-content: center;
-            align-items: center; */
-          /* } */
-        
-          /* Wyśrodkowanie formularza i wyników */
-          .container, #results {
-            width: 90%;
-            max-width: 350px;
-            padding: 20px;
-          }
+  .logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .header-links {
+    display: none;
+    flex-direction: column;
+    /* position: absolute; */
+    top: 80px;
+    right: 0;
+    background-color: #fff;
+    width: 100%;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 10px 0;
+    /* z-index: 99; */
+  }
 
-        .logo-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-          }
-        .header-links {
-          display: none;  
-          flex-direction: column;
-          /* position: absolute; */
-          top: 80px; 
-          right: 0;
-          background-color: #fff;
-          width: 100%;
-          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-          padding: 10px 0;
-          /* z-index: 99; */
-        }
-      
-        .header-links a {
-          padding: 10px;
-          font-size: 18px;
-          color: #333;
-          text-align: center;
-          text-decoration: none;
-        }
-      
-        .header-links a:hover {
-          color: #607d8b;
-        }
-          /* Przyciski */
+  .header-links a {
+    padding: 10px;
+    font-size: 18px;
+    color: #333;
+    text-align: center;
+    text-decoration: none;
+  }
+
+  .header-links a:hover {
+    color: #607d8b;
+  }
+  /* Przyciski */
   button {
     width: 100%;
     padding: 14px;
     font-size: 1.1em;
   }
-      
-        /* Pokaż hamburgera na urządzeniach mobilnych */
-        .hamburger {
-          display: flex;
-        }
-      
-        /* Jeśli menu jest widoczne */
-        .header-links.open {
-          display: flex;
-        }
-        #nav-links a {
-            color: #c9a036;
-            font-weight: bold;
-            font-size: 15px;
-        }
-      }
-      
+
+  /* Pokaż hamburgera na urządzeniach mobilnych */
+  .hamburger {
+    display: flex;
+  }
+
+  /* Jeśli menu jest widoczne */
+  .header-links.open {
+    display: flex;
+  }
+  #nav-links a {
+    color: #c9a036;
+    font-weight: bold;
+    font-size: 15px;
+  }
+  .aboutFengShui {
+    background: rgba(47, 51, 30, 0.7);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 60px;
+  }
+}
+
+@media (max-width: 768px) {
+  body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: auto;
+    min-height: 100vh;
+    background-image: url(../images/tlo-mobile.png);
+    background-size: cover;
+    background-position: center;
+  }
+
+  .container,
+  #results {
+    width: 90%;
+    max-width: 350px;
+    padding: 20px;
+  }
+
+  .logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .header-links {
+    display: none;
+    flex-direction: column;
+    /* position: absolute; */
+    top: 80px;
+    right: 0;
+    background-color: #fff;
+    width: 100%;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 10px 0;
+    /* z-index: 99; */
+  }
+
+  .header-links a {
+    padding: 10px;
+    font-size: 18px;
+    color: #333;
+    text-align: center;
+    text-decoration: none;
+  }
+
+  .header-links a:hover {
+    color: #607d8b;
+  }
+  /* Przyciski */
+  button {
+    width: 100%;
+    padding: 14px;
+    font-size: 1.1em;
+  }
+
+  /* Pokaż hamburgera na urządzeniach mobilnych */
+  .hamburger {
+    display: flex;
+  }
+
+  /* Jeśli menu jest widoczne */
+  .header-links.open {
+    display: flex;
+  }
+  #nav-links a {
+    color: #c9a036;
+    font-weight: bold;
+    font-size: 15px;
+  }
+  .aboutFengShui {
+    background: rgba(47, 51, 30, 0.7);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 60px;
+  }
+}

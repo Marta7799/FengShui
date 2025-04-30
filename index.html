@@ -9,12 +9,13 @@
 </head>
 <body>
   <header>
-    <div class="custom-header logo-container">
-      <img src="./images/logo.png" alt="White Lotus Logo">
+    <div class="custom-header">
       <nav class="header-links" id="nav-links">
+        <div class="links-wrapper">
         <a href="#" onclick="openModal('modal1')">Podstrona 1</a>
         <a href="#" onclick="openModal('modal2')">Podstrona 2</a>
-        <a href="#" onclick="openModal('modal3')">Podstrona 3</a>
+        <a href="#" onclick="openModal('modal3')">Kalkulator</a>
+        </div>
       </nav>
       <!-- Ikona hamburgera -->
     <div class="hamburger" id="hamburger-menu" onclick="toggleMenu()">
@@ -24,27 +25,28 @@
     </div>
     </div>
   </header>
-  <div class="container">
-    <h1>Kalkulator<br> Feng Shui</h1>
-    <form onsubmit="event.preventDefault(); calculateFengShuiProfile();">
-      <label for="birthYear">Rok urodzenia:</label>
-      <input type="number" id="birthYear" required>
+   <div class="main-content">
+   <section class="aboutFengShui">
+    <div class="text-Fengshui"> <h2>O FENG SHUI <br></h2>
+<p>&nbsp;</p>
+Feng oznacza wiatr, a Shui wodę. W kulturze chińskiej wiatr i woda są<br>
+kojarzone z dobrym zdrowiem, dlatego dobre Feng Shui zaczęło<br>
+oznaczać szczęście, podczas gdy złe Feng Shui oznacza pecha lub<br>
+nieszczęście.
+<p>&nbsp;</p>
+Feng Shui opiera się na Taoistycznej wizji i rozumieniu natury,<br> w szczególności na idei, że ziemia jest żywa i wypełniona Chi,<br> czyli energią.
+<p>&nbsp;</p>
+Starożytni Chińczycy wierzyli, że energia konkretnej ziemi może albo<br>
+stworzyć, albo zniszczyć królestwo. Teorie yin i yang,<br>
+a także pięć elementów feng shui, to niektóre z podstawowych<br>
+aspektów analizy feng Shui, które pochodzą z Taoizmu.</div>
+<div class="img-Fengshui"><img src="./images/fengShui.jpg" alt="kompas chiński"></div>
+</section>
 
-      <label for="birthMonth">Miesiąc urodzenia:</label>
-      <input type="number" id="birthMonth" required>
-
-      <label for="birthDay">Dzień urodzenia:</label>
-      <input type="number" id="birthDay" required>
-
-      <label for="gender">Płeć:</label>
-      <select id="gender" required>
-        <option value="male">Mężczyzna</option>
-        <option value="female">Kobieta</option>
-      </select>
-      <button type="submit">Oblicz profil</button>
-    </form>
-    <div id="results" style="display:none; margin-top:30px;"></div>
-  </div>
+</div>
+  <footer class="custom-footer">
+    <div class="logo-container"><img src="./images/logo.png" alt="White Lotus Logo"></div>
+  </footer>
   <div id="modals-container"></div>
   </script>
   <script src="scripts/modal.js"></script>
