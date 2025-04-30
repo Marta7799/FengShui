@@ -233,15 +233,17 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            height: 100vh;
+            height: auto;
+            min-height: 100vh;
+
           }
         
           /* Dostosowanie nagłówka */
-          .custom-header {
-            height: 180px;
-            justify-content: center;
-            align-items: center;
-          }
+          /* .custom-header { */
+            /* height: 0px; */
+            /* justify-content: center;
+            align-items: center; */
+          /* } */
         
           /* Wyśrodkowanie formularza i wyników */
           .container, #results {
