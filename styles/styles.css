@@ -1,4 +1,12 @@
+/* @import url("base.css");
+@import url("components.css");
+@import url("layout.css");
+@import url("modal.css");
+@import url("responsive.css");
+@import url("sections.css"); */
+
 @import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Quicksand:wght@400;600;700&display=swap");
+
 * {
   margin: 0;
   padding: 0;
@@ -10,21 +18,23 @@
   box-sizing: border-box;
   overflow-x: hidden;
 }
-/* Globalne style */
+
 body {
   font-family: "Cormorant Garamond", sans-serif;
-  background-image: url(../images/tlo.jpg);
   color: #333;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  background-image: url(../images/tlo.jpg);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 }
 
-/* Nagłówek */
-header {
+/* === LAYOUT === */
+header,
+.custom-header,
+.custom-footer {
   position: relative;
   width: 100%;
   display: flex;
@@ -33,18 +43,10 @@ header {
 }
 
 .custom-header {
-  /* background: linear-gradient(
-    135deg,
-    rgba(250, 252, 251, 0.3),
-    rgba(224, 224, 224, 0.3)
-  ); */
   height: auto;
   min-height: 200px;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  position: relative;
 }
+
 .custom-header:hover {
   background: linear-gradient(
     to top,
@@ -52,8 +54,8 @@ header {
     rgba(100, 100, 100, 0.5)
   );
   background-size: 100% 200%;
-  /* animation: slide 5s ease-in-out infinite alternate; */
 }
+
 .custom-footer {
   display: none;
   background: linear-gradient(
@@ -61,13 +63,8 @@ header {
     rgba(250, 252, 251, 0.3),
     rgba(224, 224, 224, 0.3)
   );
-  height: auto;
-  min-height: 200px;
-  width: 100%;
-  /* display: flex; */
-  align-items: center;
-  position: relative;
 }
+
 .logo-container {
   padding-left: 20px;
   display: flex;
@@ -93,7 +90,7 @@ header {
 .header-links a {
   margin-left: 20px;
   margin-right: 20px;
-  color: darkolivegreen;
+  color: #424242;
   font-weight: bold;
   font-size: 25px;
 }
@@ -101,9 +98,11 @@ header {
 .header-links a:hover {
   color: #607d8b;
 }
+
 .links-wrapper {
   margin-right: 30px;
 }
+
 .main-content {
   width: 100%;
   display: flex;
@@ -111,6 +110,8 @@ header {
   align-items: center;
   justify-content: center;
 }
+
+/* === SECTIONS === */
 .aboutFengShui {
   background: rgba(47, 51, 30, 0.7);
   width: 100%;
@@ -121,6 +122,7 @@ header {
   gap: 20px;
   padding: 60px 10%;
 }
+
 .text-Fengshui {
   flex: 1;
   max-width: 600px;
@@ -128,12 +130,14 @@ header {
   font-size: 20px;
   padding: 0 20px;
 }
+
 .img-Fengshui {
   flex: 1;
   display: flex;
   justify-content: center;
   align-items: center;
 }
+
 .img-Fengshui img {
   max-width: 100%;
   height: auto;
@@ -141,7 +145,7 @@ header {
   object-fit: contain;
 }
 
-/* Stylizacja hamburgera */
+/* === COMPONENTS === */
 .hamburger {
   display: none;
   flex-direction: column;
@@ -152,7 +156,7 @@ header {
   position: absolute;
   top: 25px;
   right: 25px;
-  z-index: 100; /* żeby był nad innymi elementami */
+  z-index: 100;
 }
 
 .hamburger .bar {
@@ -162,7 +166,6 @@ header {
   border-radius: 5px;
 }
 
-/* Styl dla nagłówka */
 h1 {
   text-align: center;
   color: #c62828;
@@ -171,7 +174,6 @@ h1 {
   font-family: "Cormorant Garamond", serif;
 }
 
-/* Formularz kalkulatora */
 .container,
 #results {
   background: linear-gradient(
@@ -227,19 +229,19 @@ button:hover {
   background-color: #607d8b;
 }
 
-/* Sekcje wyników */
 #results {
   width: 100%;
   max-width: 350px;
   margin-top: 30px;
   display: flex;
   flex-direction: column;
-  align-items: center; /* Wyśrodkowanie wyników */
+  align-items: center;
   padding: 20px;
   background-color: #fff;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
+
 .result-section {
   margin-top: 20px;
   padding: 15px;
@@ -257,7 +259,7 @@ ul {
   padding-left: 20px;
 }
 
-/* Style dla okien modalnych */
+/* === MODAL === */
 .modal {
   display: none;
   position: fixed;
@@ -293,20 +295,21 @@ ul {
   cursor: pointer;
 }
 
-/* mobile devices styles */
+/* === RESPONSIVE === */
 @media (max-width: 1024px) {
   body {
     background-image: url(../images/tlo-tablet.png);
     background-size: cover;
-    /* background-position: center; */
     background-repeat: no-repeat;
   }
+
   .container,
   #results {
     width: 90%;
     max-width: 350px;
     padding: 20px;
   }
+
   .header-links {
     display: none;
     flex-direction: column;
@@ -317,40 +320,37 @@ ul {
     width: 100%;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     padding: 10px 0;
-    /* z-index: 99; */
   }
 
-  /* Przyciski */
   button {
     width: 100%;
     padding: 14px;
     font-size: 1.1em;
   }
 
-  /* Pokaż hamburgera na urządzeniach mobilnych */
   .hamburger {
     display: flex;
   }
 
-  /* Jeśli menu jest widoczne */
   .header-links.open {
     display: flex;
     align-items: center;
     flex-direction: row;
     height: 90px;
   }
+
   #nav-links a {
     color: darkolivegreen;
     font-weight: bold;
     font-size: 25px;
     margin-left: 0;
   }
+
   .aboutFengShui {
-    background: rgba(47, 51, 30, 0.7);
-    width: 100vw;
-    margin-left: calc(-50vw + 50%);
     flex-direction: column;
     gap: 60px;
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
   }
 }
 
@@ -383,55 +383,39 @@ ul {
     background-color: #fff;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     padding: 10px 0;
-    /* z-index: 99; */
   }
 
-  /* Przyciski */
   button {
     width: 100%;
     padding: 14px;
     font-size: 1.1em;
   }
 
-  /* Pokaż hamburgera na urządzeniach mobilnych */
   .hamburger {
     display: flex;
   }
 
-  /* Jeśli menu jest widoczne */
   .header-links.open {
     display: flex;
     flex-direction: row;
     height: 60px;
   }
+
   #nav-links a {
     color: darkolivegreen;
     font-weight: bold;
     font-size: 19px;
     margin-left: 0;
   }
+
   .links-wrapper {
     margin-right: 0;
   }
+
   .aboutFengShui {
-    background: rgba(47, 51, 30, 0.7);
     flex-direction: column;
     gap: 50px;
     width: 100vw;
     margin-left: calc(-50vw + 50%);
   }
 }
-/* @keyframes slide {
-  0% {
-    transform: translateY(30px);
-    opacity: 0;
-  }
-  100% {
-    transform: translateY(0);
-    opacity: 1;
-  }
-} */
-
-/* .element {
-  animation: wjezdzanie 0.5s ease-out forwards;
-} */
