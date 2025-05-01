@@ -7,6 +7,8 @@
   vertical-align: baseline;
   text-decoration: none;
   outline: 0;
+  box-sizing: border-box;
+  overflow-x: hidden;
 }
 /* Globalne style */
 body {
@@ -49,6 +51,8 @@ header {
     rgba(200, 200, 200, 0.5),
     rgba(100, 100, 100, 0.5)
   );
+  background-size: 100% 200%;
+  /* animation: slide 5s ease-in-out infinite alternate; */
 }
 .custom-footer {
   display: none;
@@ -89,7 +93,7 @@ header {
 .header-links a {
   margin-left: 20px;
   margin-right: 20px;
-  color: black;
+  color: darkolivegreen;
   font-weight: bold;
   font-size: 25px;
 }
@@ -102,7 +106,6 @@ header {
 }
 .main-content {
   width: 100%;
-  flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -112,18 +115,32 @@ header {
   background: rgba(47, 51, 30, 0.7);
   width: 100%;
   display: flex;
+  flex-direction: row;
+  align-items: center;
   justify-content: center;
-  gap: 150px;
+  gap: 20px;
+  padding: 60px 10%;
 }
 .text-Fengshui {
-  margin: 20px;
+  flex: 1;
+  max-width: 600px;
   color: white;
   font-size: 20px;
+  padding: 0 20px;
 }
 .img-Fengshui {
+  flex: 1;
   display: flex;
+  justify-content: center;
   align-items: center;
 }
+.img-Fengshui img {
+  max-width: 100%;
+  height: auto;
+  max-height: 400px;
+  object-fit: contain;
+}
+
 /* Stylizacja hamburgera */
 .hamburger {
   display: none;
@@ -139,7 +156,7 @@ header {
 }
 
 .hamburger .bar {
-  background-color: #c9a036;
+  background-color: #545454;
   height: 5px;
   width: 100%;
   border-radius: 5px;
@@ -192,11 +209,12 @@ select {
   border: 1px solid #ccc;
   border-radius: 8px;
   font-size: 1em;
+  color: #545454;
 }
 
 button {
   padding: 12px;
-  background-color: #78909c;
+  background-color: darkolivegreen;
   color: white;
   border: none;
   border-radius: 8px;
@@ -235,9 +253,9 @@ button:hover {
   font-weight: bold;
 }
 
-/* ul {
+ul {
   padding-left: 20px;
-} */
+}
 
 /* Style dla okien modalnych */
 .modal {
@@ -264,7 +282,7 @@ button:hover {
 .close {
   color: #aaa;
   float: right;
-  font-size: 28px;
+  font-size: 40px;
   font-weight: bold;
 }
 
@@ -289,16 +307,10 @@ button:hover {
     max-width: 350px;
     padding: 20px;
   }
-
-  .logo-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
   .header-links {
     display: none;
     flex-direction: column;
-    /* position: absolute; */
+    position: absolute;
     top: 80px;
     right: 0;
     background-color: #fff;
@@ -308,17 +320,6 @@ button:hover {
     /* z-index: 99; */
   }
 
-  .header-links a {
-    padding: 10px;
-    font-size: 18px;
-    color: #333;
-    text-align: center;
-    text-decoration: none;
-  }
-
-  .header-links a:hover {
-    color: #607d8b;
-  }
   /* Przyciski */
   button {
     width: 100%;
@@ -334,19 +335,21 @@ button:hover {
   /* Jeśli menu jest widoczne */
   .header-links.open {
     display: flex;
+    align-items: center;
+    flex-direction: row;
+    height: 90px;
   }
   #nav-links a {
-    color: #c9a036;
+    color: darkolivegreen;
     font-weight: bold;
-    font-size: 15px;
+    font-size: 25px;
+    margin-left: 0;
   }
   .aboutFengShui {
     background: rgba(47, 51, 30, 0.7);
-    width: 100%;
-    display: flex;
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
     gap: 60px;
   }
 }
@@ -371,35 +374,18 @@ button:hover {
     padding: 20px;
   }
 
-  .logo-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
   .header-links {
     display: none;
     flex-direction: column;
-    /* position: absolute; */
+    position: absolute;
     top: 80px;
     right: 0;
     background-color: #fff;
-    width: 100%;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     padding: 10px 0;
     /* z-index: 99; */
   }
 
-  .header-links a {
-    padding: 10px;
-    font-size: 18px;
-    color: #333;
-    text-align: center;
-    text-decoration: none;
-  }
-
-  .header-links a:hover {
-    color: #607d8b;
-  }
   /* Przyciski */
   button {
     width: 100%;
@@ -415,19 +401,37 @@ button:hover {
   /* Jeśli menu jest widoczne */
   .header-links.open {
     display: flex;
+    flex-direction: row;
+    height: 60px;
   }
   #nav-links a {
-    color: #c9a036;
+    color: darkolivegreen;
     font-weight: bold;
-    font-size: 15px;
+    font-size: 19px;
+    margin-left: 0;
+  }
+  .links-wrapper {
+    margin-right: 0;
   }
   .aboutFengShui {
     background: rgba(47, 51, 30, 0.7);
-    width: 100%;
-    display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 60px;
+    gap: 50px;
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
   }
 }
+/* @keyframes slide {
+  0% {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+} */
+
+/* .element {
+  animation: wjezdzanie 0.5s ease-out forwards;
+} */
