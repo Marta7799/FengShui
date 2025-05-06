@@ -1,0 +1,48 @@
+header,
+.custom-header,
+.custom-footer {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.custom-header {
+  min-height: 200px;
+  background: url('../images/napis-header.jpg') no-repeat center;
+  background-size: contain;
+}
+
+.logo-container {
+  padding-left: 20px;
+  display: flex;
+  align-items: center;
+
+  img {
+    width: auto;
+    max-width: 80%;
+    height: auto;
+    max-height: 150px;
+    border-radius: 5%;
+  }
+}
+
+.header-links {
+  position: absolute;
+  bottom: 10px;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+
+  a {
+    margin: 0 20px;
+    color: $color-primary;
+    font-weight: bold;
+    font-size: 25px;
+
+    &:hover {
+      color: #607d8b;
+    }
+  }
+}

@@ -1,0 +1,14 @@
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+input,
+select {
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: $radius;
+  font-size: 1em;
+  color: #545454;
+}

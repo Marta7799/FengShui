@@ -1,0 +1,300 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  line-height: 1.4em;
+  vertical-align: baseline;
+  text-decoration: none;
+  outline: 0;
+  overflow-y: scroll;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+body {
+  font-family: "Cormorant Garamond", sans-serif;
+  color: #333;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+h1 {
+  text-align: center;
+  color: #c62828;
+  font-size: 30px;
+  margin-bottom: 20px;
+  font-family: "Cormorant Garamond", serif;
+}
+
+label {
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #c62828;
+}
+
+.highlight {
+  color: #c9a036;
+  font-weight: bold;
+}
+
+header,
+.custom-header,
+.custom-footer {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.custom-header {
+  min-height: 200px;
+  background: url("../images/napis-header.jpg") no-repeat center;
+  background-size: contain;
+}
+
+.logo-container {
+  padding-left: 20px;
+  display: flex;
+  align-items: center;
+}
+.logo-container img {
+  width: auto;
+  max-width: 80%;
+  height: auto;
+  max-height: 150px;
+  border-radius: 5%;
+}
+
+.header-links {
+  position: absolute;
+  bottom: 10px;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+.header-links a {
+  margin: 0 20px;
+  color: darkolivegreen;
+  font-weight: bold;
+  font-size: 25px;
+}
+.header-links a:hover {
+  color: #607d8b;
+}
+
+.custom-footer {
+  display: none;
+  background: linear-gradient(135deg, rgba(250, 252, 251, 0.3), rgba(224, 224, 224, 0.3));
+}
+
+.main-content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 1024px) {
+  .custom-header {
+    min-height: 150px;
+  }
+  .header-links {
+    bottom: 0;
+  }
+  #nav-links a {
+    font-size: 25px;
+  }
+  .aboutFengShui {
+    height: 90%;
+  }
+  .img-Fengshui {
+    margin-right: 50px;
+  }
+}
+@media (max-width: 820px) {
+  body {
+    align-items: center;
+    justify-content: flex-start;
+  }
+  .custom-header {
+    min-height: 110px;
+  }
+  .header-links {
+    display: none;
+  }
+  .hamburger {
+    display: flex;
+  }
+  .header-links.open {
+    display: flex;
+    flex-direction: row;
+    bottom: 5;
+  }
+  .custom-header.no-bg {
+    background-image: none !important;
+    background-color: white;
+  }
+  #nav-links a {
+    font-size: 18px;
+    font-weight: bold;
+    color: darkolivegreen;
+  }
+  .aboutFengShui {
+    width: 100%;
+  }
+  .shadow {
+    width: 100%;
+    flex-direction: column;
+  }
+  .text-Fengshui {
+    font-size: 18px;
+  }
+  .img-Fengshui {
+    margin: 0;
+    justify-content: center;
+  }
+  button {
+    width: 100%;
+    padding: 14px;
+    font-size: 1.1em;
+  }
+}
+button {
+  padding: 12px;
+  font-size: 1.1em;
+  color: white;
+  background-color: darkolivegreen;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+button:hover {
+  background-color: #607d8b;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+input,
+select {
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1em;
+  color: #545454;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+  margin: 15% auto;
+  padding: 20px;
+  width: 90%;
+  max-width: 700px;
+  background-color: #fefefe;
+  border: 1px solid #888;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.close {
+  position: absolute;
+  top: -10px;
+  right: 10px;
+  font-size: 40px;
+  font-weight: bold;
+  color: #aaa;
+}
+.close:hover, .close:focus {
+  color: black;
+  cursor: pointer;
+}
+
+.hamburger {
+  display: none;
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  width: 30px;
+  height: 25px;
+  z-index: 100;
+  cursor: pointer;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.hamburger .bar {
+  width: 100%;
+  height: 5px;
+  background-color: #545454;
+  border-radius: 5px;
+}
+
+.aboutFengShui {
+  width: 100%;
+  height: 90%;
+  padding: 60px 10%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  background: rgba(47, 51, 30, 0.4) url("../images/plainBackground.jpg") no-repeat center;
+  background-size: cover;
+}
+
+.shadow {
+  width: 95%;
+  display: flex;
+  background: rgba(47, 51, 30, 0.7);
+}
+
+.text-Fengshui {
+  flex: 1;
+  margin: 20px;
+  padding: 0 50px;
+  font-size: 25px;
+  color: white;
+}
+
+.img-Fengshui {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.img-Fengshui img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: 400px;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+ul {
+  padding-left: 20px;
+}

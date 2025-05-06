@@ -1,0 +1,26 @@
+body {
+  font-family: $font-family-main;
+  color: $color-text;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+h1 {
+  text-align: center;
+  color: $color-accent;
+  font-size: 30px;
+  margin-bottom: 20px;
+  font-family: "Cormorant Garamond", serif;
+}
+
+label {
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: $color-accent;
+}
+
+.highlight {
+  color: $color-highlight;
+  font-weight: bold;
+}
