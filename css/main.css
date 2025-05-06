@@ -55,7 +55,7 @@ header,
 
 .custom-header {
   min-height: 200px;
-  background: url("../images/napis-header.jpg") no-repeat center;
+  background: url("../../images/napis-header.jpg") no-repeat center;
   background-size: contain;
 }
 
@@ -91,7 +91,11 @@ header,
 
 .custom-footer {
   display: none;
-  background: linear-gradient(135deg, rgba(250, 252, 251, 0.3), rgba(224, 224, 224, 0.3));
+  background: linear-gradient(
+    135deg,
+    rgba(250, 252, 251, 0.3),
+    rgba(224, 224, 224, 0.3)
+  );
 }
 
 .main-content {
@@ -116,7 +120,7 @@ header,
     font-size: 25px;
   }
   .bg-logo {
-    background-image: url("../../images/grafika2.png");
+    background-image: url("../images/grafika2.png");
     background-position: left 5vw top;
     background-size: 15% auto;
   }
@@ -230,7 +234,8 @@ select {
   font-weight: bold;
   color: #aaa;
 }
-.close:hover, .close:focus {
+.close:hover,
+.close:focus {
   color: black;
   cursor: pointer;
 }
@@ -263,7 +268,8 @@ select {
   align-items: center;
   justify-content: center;
   gap: 20px;
-  background: rgba(47, 51, 30, 0.4) url("../images/plainBackground.jpg") no-repeat center;
+  background: rgba(47, 51, 30, 0.4) url("../images/plainBackground.jpg")
+    no-repeat center;
   background-size: cover;
 }
 
@@ -293,7 +299,7 @@ select {
   height: auto;
   max-height: 400px;
   -o-object-fit: contain;
-     object-fit: contain;
+  object-fit: contain;
 }
 
 ul {
@@ -312,7 +318,7 @@ header,
 
 .custom-header {
   min-height: 200px;
-  background: url("../images/napis-header.jpg") no-repeat center;
+  background: url("../../images/napis-header.jpg") no-repeat center;
   background-size: contain;
 }
 
@@ -348,7 +354,11 @@ header,
 
 .custom-footer {
   display: none;
-  background: linear-gradient(135deg, rgba(250, 252, 251, 0.3), rgba(224, 224, 224, 0.3));
+  background: linear-gradient(
+    135deg,
+    rgba(250, 252, 251, 0.3),
+    rgba(224, 224, 224, 0.3)
+  );
 }
 
 .main-content {
@@ -373,7 +383,7 @@ header,
     font-size: 25px;
   }
   .bg-logo {
-    background-image: url("../../images/grafika2.png");
+    background-image: url("../images/grafika2.png");
     background-position: left 5vw top;
     background-size: 15% auto;
   }
