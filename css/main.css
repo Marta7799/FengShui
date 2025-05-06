@@ -55,7 +55,7 @@ header,
 
 .custom-header {
   min-height: 200px;
-  background: url("../../images/napis-header.jpg") no-repeat center;
+  background: url("../images/napis-header.jpg") no-repeat center;
   background-size: contain;
 }
 
@@ -312,7 +312,7 @@ header,
 
 .custom-header {
   min-height: 200px;
-  background: url("../../images/napis-header.jpg") no-repeat center;
+  background: url("../images/napis-header.jpg") no-repeat center;
   background-size: contain;
 }
 
