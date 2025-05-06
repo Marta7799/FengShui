@@ -1,5 +1,5 @@
 @media (max-width: 1024px) {
-  .custom-header {
+  .header {
     min-height: 150px;
   }
 
@@ -13,6 +13,11 @@
     font-size: 25px;
   }
 
+  .bg-logo {
+    background-image: url(/images/grafika2.png);
+    background-position: left 5vw top;
+    background-size: 15% auto;
+  }
   .aboutFengShui {
     height: 90%;
   }
@@ -42,10 +47,10 @@
     bottom: 5;
   }
 
-  .custom-header.no-bg {
-    background-image: none !important;
-    background-color: white;
-  }
+  // .custom-header.no-bg {
+  //   background-image: none !important;
+  //   background-color: white;
+  // }
 
   #nav-links a {
     font-size: 17px;

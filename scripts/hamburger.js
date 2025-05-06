@@ -5,6 +5,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   hamburger.addEventListener("click", () => {
     navLinks.classList.toggle("open");
-    header.classList.toggle("no-bg");
+    header.classList.toggle("bg-logo");
   });
 });
