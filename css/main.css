@@ -116,7 +116,7 @@ header,
     font-size: 25px;
   }
   .bg-logo {
-    background-image: url(/images/grafika2.png);
+    background-image: url(../images/grafika2.png);
     background-position: left 5vw top;
     background-size: 15% auto;
   }
@@ -373,7 +373,7 @@ header,
     font-size: 25px;
   }
   .bg-logo {
-    background-image: url(/images/grafika2.png);
+    background-image: url(../images/grafika2.png);
     background-position: left 5vw top;
     background-size: 15% auto;
   }
