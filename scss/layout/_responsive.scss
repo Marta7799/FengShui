@@ -4,7 +4,7 @@
   }
 
   .header-links {
-    bottom: 0;
+    bottom: 5;
   }
   .hamburger {
     display: flex;
@@ -36,10 +36,6 @@
     display: none;
   }
 
-  .hamburger {
-    display: flex;
-  }
-
   .header-links.open {
     display: flex;
     flex-direction: row;
@@ -52,7 +48,7 @@
   }
 
   #nav-links a {
-    font-size: 18px;
+    font-size: 17px;
     font-weight: bold;
     color: $color-primary;
   }
