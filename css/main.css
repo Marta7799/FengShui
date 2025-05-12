@@ -168,6 +168,16 @@ header,
     padding: 14px;
     font-size: 1.1em;
   }
+  .add-to-cart {
+    margin: 0;
+    padding: 2px;
+    background-color: #7b4f1d;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 10px;
+  }
 }
 button {
   padding: 12px;
@@ -269,6 +279,7 @@ select {
 
 .add-to-cart {
   margin-left: 20px;
+  width: 30%;
   padding: 8px 16px;
   background-color: #7b4f1d;
   color: white;
@@ -490,5 +501,15 @@ header,
     width: 100%;
     padding: 14px;
     font-size: 1.1em;
+  }
+  .add-to-cart {
+    margin: 0;
+    padding: 2px;
+    background-color: #7b4f1d;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 10px;
   }
 }

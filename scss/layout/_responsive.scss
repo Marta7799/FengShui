@@ -47,11 +47,6 @@
     bottom: 5;
   }
 
-  // .custom-header.no-bg {
-  //   background-image: none !important;
-  //   background-color: white;
-  // }
-
   #nav-links a {
     font-size: 17px;
     font-weight: bold;
@@ -80,5 +75,17 @@
     width: 100%;
     padding: 14px;
     font-size: 1.1em;
+  }
+
+  .add-to-cart {
+    // width: 30%;
+    margin: 0;
+    padding: 2px;
+    background-color: #7b4f1d;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 10px;
   }
 }
