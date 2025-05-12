@@ -10,17 +10,10 @@ function openModal(modalId) {
         const modal = document.getElementById(modalId);
         if (modal) {
           modal.style.display = "block";
-          console.log("Modal został załadowany i wyświetlony.");
-
-          // Poczekaj aż modal się doda do DOM, a następnie uruchom renderCart
           setTimeout(() => {
             const cartList = document.getElementById("cart");
             const totalEl = document.getElementById("total");
             const checkout = document.getElementById("checkout");
-
-            console.log("cartList:", cartList);
-            console.log("totalEl:", totalEl);
-            console.log("checkout:", checkout);
 
             if (typeof renderCart === "function") {
               renderCart();

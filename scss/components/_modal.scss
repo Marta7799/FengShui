@@ -82,3 +82,18 @@
 .submit {
   text-align: center;
 }
+.remove-item {
+  margin-left: 10px;
+  padding: 2px 6px;
+  font-size: 10px;
+  width: 60px;
+  background-color: #d9534f;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.remove-item:hover {
+  background-color: #c9302c;
+}
