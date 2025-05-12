@@ -2,7 +2,7 @@
   <div class="modal-content">
     <span class="close" onclick="closeModal('kalkulator')">&times;</span>
     <div class="container">
-      <h1>Kalkulator<br />Feng Shui</h1>
+      <h2>Kalkulator<br />Feng Shui</h2>
       <form onsubmit="event.preventDefault(); calculateFengShuiProfile();">
         <label for="birthYear">Rok urodzenia:</label>
         <input type="number" id="birthYear" min="1900" max="2100" required />
@@ -19,8 +19,9 @@
           <option value="male">Mężczyzna</option>
           <option value="female">Kobieta</option>
         </select>
-
-        <button type="submit">Oblicz profil</button>
+        <div class="submit">
+          <button type="submit">Oblicz profil</button>
+        </div>
       </form>
 
       <div id="results" style="display: none; margin-top: 30px"></div>

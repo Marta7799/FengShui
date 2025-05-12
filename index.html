@@ -1,61 +1,77 @@
 <!DOCTYPE html>
 <html lang="pl">
-<head>
-  <meta charset="UTF-8">
-  <link rel="shortcut icon" href="./images/grafika.png"type="image/png" sizes="45x45">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>White Lotus</title>
-  <link rel="stylesheet" href="./css/main.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
-
-</head>
-<body>
-  <header>
-    <div class="custom-header">
-      <nav class="header-links" id="nav-links">
-        <div class="links-wrapper">
-        <a href="#" onclick="openModal('modal1')">O nas</a>
-        <a href="#" onclick="openModal('modal2')">Blog</a>
-        <a href="#" onclick="openModal('kalkulator')">Kalkulator</a>
+  <head>
+    <meta charset="UTF-8" />
+    <link
+      rel="shortcut icon"
+      href="./images/grafika.png"
+      type="image/png"
+      sizes="45x45"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>White Lotus</title>
+    <link rel="stylesheet" href="./css/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Quicksand:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header>
+      <div class="custom-header">
+        <nav class="header-links" id="nav-links">
+          <div class="links-wrapper">
+            <a href="#" onclick="openModal('modal1')">O nas</a>
+            <a href="#" onclick="openModal('shop')">Sklep</a>
+            <a href="#" onclick="openModal('kalkulator')">Kalkulator</a>
+          </div>
+        </nav>
+        <!-- Ikona hamburgera -->
+        <div class="hamburger" id="hamburger-menu">
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
         </div>
-      </nav>
-      <!-- Ikona hamburgera -->
-    <div class="hamburger" id="hamburger-menu">
-      <div class="bar"></div>
-      <div class="bar"></div>
-      <div class="bar"></div>
+      </div>
+    </header>
+    <div class="main-content">
+      <section class="aboutFengShui">
+        <div class="shadow">
+          <div class="text-Fengshui">
+            <h1>O FENG SHUI <br /></h1>
+            <p>&nbsp;</p>
+            <strong>Feng</strong> oznacza wiatr, a <strong>Shui</strong> wodę. W
+            kulturze chińskiej wiatr i woda<br />
+            są kojarzone z dobrym zdrowiem, dlatego dobre Feng Shui zaczęło<br />
+            oznaczać szczęście, podczas gdy złe Feng Shui oznacza pecha<br />
+            lub nieszczęście.
+            <p>&nbsp;</p>
+            Feng Shui opiera się na Taoistycznej wizji i rozumieniu natury,<br />
+            w szczególności na idei, że ziemia jest żywa i wypełniona Chi,<br />
+            czyli energią.
+            <p>&nbsp;</p>
+            Starożytni Chińczycy wierzyli, że energia konkretnej ziemi może<br />
+            albo stworzyć, albo zniszczyć królestwo. Teorie yin i yang,<br />
+            a także pięć elementów feng shui, to niektóre z podstawowych<br />
+            aspektów analizy feng Shui, które pochodzą z Taoizmu.
+          </div>
+          <div class="img-Fengshui">
+            <img src="./images/fengShui.jpg" alt="kompas chiński" />
+          </div>
+        </div>
+      </section>
     </div>
-    </div>
-  </header>
-   <div class="main-content">
-   <section class="aboutFengShui">
-    <div class="shadow">
-    <div class="text-Fengshui"> <h2>O FENG SHUI <br></h2>
-<p>&nbsp;</p>
-<strong>Feng</strong> oznacza wiatr, a <strong>Shui</strong> wodę. W kulturze chińskiej wiatr i woda<br>
-są kojarzone z dobrym zdrowiem, dlatego dobre Feng Shui zaczęło<br>
-oznaczać szczęście, podczas gdy złe Feng Shui oznacza pecha<br>
-lub nieszczęście.
-<p>&nbsp;</p>
-Feng Shui opiera się na Taoistycznej wizji i rozumieniu natury,<br> w szczególności na idei, że ziemia jest żywa i wypełniona Chi,<br> czyli energią.
-<p>&nbsp;</p>
-Starożytni Chińczycy wierzyli, że energia konkretnej ziemi może<br>
-albo stworzyć, albo zniszczyć królestwo. Teorie yin i yang,<br>
-a także pięć elementów feng shui, to niektóre z podstawowych<br>
-aspektów analizy feng Shui, które pochodzą z Taoizmu.</div>
-<div class="img-Fengshui"><img src="./images/fengShui.jpg" alt="kompas chiński"></div>
-</div></section>
-
-</div>
-  <footer class="custom-footer">
-    <div class="logo-container"><img src="./images/logo.png" alt="White Lotus Logo"></div>
-  </footer>
-  <div id="modals-container"></div>
-  </script>
-  <script src="scripts/modal.js"></script>
-  <script src="scripts/fengshui.js"></script>
-  <script src="scripts/hamburger.js"></script>
-</body>
+    <footer class="custom-footer">
+      <div class="logo-container">
+        <img src="./images/logo.png" alt="White Lotus Logo" />
+      </div>
+    </footer>
+    <div id="modals-container"></div>
+    <script src="scripts/modal.js"></script>
+    <script src="scripts/fengshui.js"></script>
+    <script src="scripts/hamburger.js"></script>
+    <script src="scripts/shop.js"></script>
+  </body>
 </html>

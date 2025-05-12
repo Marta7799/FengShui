@@ -1,0 +1,54 @@
+<div id="shop" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal('shop')">&times;</span>
+    <h2>Sklep</h2>
+
+    <div class="product-list">
+      <div
+        class="product"
+        data-id="1"
+        data-name="Szkolenie Feng Shui"
+        data-price="199"
+      >
+        <div class="product-name">
+          <h3>Szkolenie Feng Shui</h3>
+          <p>Cena: 199 zł</p>
+        </div>
+        <button class="add-to-cart">Dodaj do koszyka</button>
+      </div>
+
+      <div
+        class="product"
+        data-id="2"
+        data-name="Charakterystyka Osobista"
+        data-price="149"
+      >
+        <div class="product-name">
+          <h3>Charakterystyka Osobista</h3>
+          <p>Cena: 149 zł</p>
+        </div>
+        <button class="add-to-cart">Dodaj do koszyka</button>
+      </div>
+
+      <div
+        class="product"
+        data-id="3"
+        data-name="Analiza Domu"
+        data-price="249"
+      >
+        <div class="product-name">
+          <h3>Analiza Domu</h3>
+          <p>Cena: 249 zł</p>
+        </div>
+        <button class="add-to-cart">Dodaj do koszyka</button>
+      </div>
+    </div>
+
+    <div class="submit">
+      <h3>Koszyk</h3>
+      <ul id="cart"></ul>
+      <p>Suma: <span id="total">0</span> zł</p>
+      <button id="checkout">Zamów</button>
+    </div>
+  </div>
+</div>
