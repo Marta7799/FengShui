@@ -1,46 +1,51 @@
 function openModal(modalId) {
   const container = document.getElementById("modals-container");
 
-  // Sprawdź, czy modal już istnieje
   if (!document.getElementById(modalId)) {
     fetch(`modals/${modalId}.html`)
       .then((res) => res.text())
       .then((html) => {
-        // Wstaw modal do kontenera
         container.innerHTML += html;
 
-        // Po załadowaniu modala, znajdź go w DOM-ie
         const modal = document.getElementById(modalId);
         if (modal) {
-          modal.style.display = "block"; // Ustaw modal na widoczny
+          modal.style.display = "block";
+          console.log("Modal został załadowany i wyświetlony.");
 
-          // Dodaj nasłuchiwanie na zamknięcie modala po załadowaniu
-          const closeButton = modal.querySelector(".close");
-          if (closeButton) {
-            closeButton.addEventListener("click", function () {
-              closeModal(modalId);
-            });
-          }
+          // Poczekaj aż modal się doda do DOM, a następnie uruchom renderCart
+          setTimeout(() => {
+            const cartList = document.getElementById("cart");
+            const totalEl = document.getElementById("total");
+            const checkout = document.getElementById("checkout");
+
+            console.log("cartList:", cartList);
+            console.log("totalEl:", totalEl);
+            console.log("checkout:", checkout);
+
+            if (typeof renderCart === "function") {
+              renderCart();
+            } else {
+              console.warn("renderCart nie jest zdefiniowane.");
+            }
+          }, 100);
         }
       })
-      .catch((err) => console.error("Błąd ładowania modala:", err));
+      .catch((err) => {
+        console.error("Błąd ładowania modala:", err);
+      });
   } else {
     const modal = document.getElementById(modalId);
-    if (modal) {
-      modal.style.display = "block"; // Ustaw modal na widoczny, jeśli już istnieje
-    }
+    modal.style.display = "block";
   }
 }
 
-// Funkcja zamykająca modal
 function closeModal(modalId) {
   const modal = document.getElementById(modalId);
   if (modal) {
-    modal.style.display = "none"; // Ukryj modal
+    modal.style.display = "none";
   }
 }
 
-// Zamykanie modala po kliknięciu poza modalem
 window.onclick = function (event) {
   const modals = document.querySelectorAll(".modal");
   modals.forEach(function (modal) {
