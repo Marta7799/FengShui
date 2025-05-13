@@ -4,14 +4,28 @@ document.addEventListener("DOMContentLoaded", () => {
   let totalEl = null;
   let checkoutButton = null;
 
+  // Funkcja inicjalizująca elementy
   function initElements() {
     cartList = document.getElementById("cart");
     totalEl = document.getElementById("total");
     checkoutButton = document.getElementById("checkout");
+
+    // Sprawdzenie, czy elementy istnieją
+    if (!cartList || !totalEl || !checkoutButton) {
+      console.error(
+        "Nie znaleziono elementów koszyka, sumy lub przycisku zamówienia."
+      );
+      return false;
+    }
+    return true;
   }
 
+  // Funkcja renderująca koszyk
   function renderCart() {
-    initElements();
+    if (!initElements()) {
+      return; // Zatrzymaj renderowanie, jeśli elementy nie zostały poprawnie załadowane
+    }
+
     if (!cartList || !totalEl) {
       console.log("Nie znaleziono elementów koszyka lub sumy.");
       return;
@@ -35,8 +49,15 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     totalEl.textContent = total.toFixed(2);
+
+    // Ukrywamy przycisk PayPal na początku
+    const paypalContainer = document.getElementById("paypal-button-container");
+    if (paypalContainer) {
+      paypalContainer.innerHTML = "";
+    }
   }
 
+  // Obsługa kliknięć
   document.addEventListener("click", function (e) {
     if (e.target && e.target.classList.contains("add-to-cart")) {
       const product = e.target.closest(".product");
@@ -63,12 +84,51 @@ document.addEventListener("DOMContentLoaded", () => {
         alert("Koszyk jest pusty!");
         return;
       }
-      alert("Dziękujemy za zamówienie!");
-      cart.length = 0;
-      renderCart();
+
+      // Pokazanie przycisków PayPal po kliknięciu "Zamów"
+      const total = parseFloat(totalEl.textContent);
+      if (total > 0) {
+        updatePayPalButton(total);
+      }
     }
   });
 
-  // Globalne udostępnienie renderCart (dla modal.js itd.)
+  // Globalne udostępnienie renderCart (np. dla modal.js)
   window.renderCart = renderCart;
+
+  // ==== PAYPAL ====
+  function updatePayPalButton(total) {
+    const paypalContainer = document.getElementById("paypal-button-container");
+    if (!paypalContainer) return;
+
+    paypalContainer.innerHTML = ""; // Wyczyść stare przyciski PayPal
+
+    if (total === 0) return;
+
+    // Dodanie przycisków PayPal
+    paypal
+      .Buttons({
+        createOrder: function (data, actions) {
+          return actions.order.create({
+            purchase_units: [
+              {
+                amount: {
+                  value: total.toFixed(2),
+                },
+              },
+            ],
+          });
+        },
+        onApprove: function (data, actions) {
+          return actions.order.capture().then(function (details) {
+            alert("Dziękujemy, " + details.payer.name.given_name + "!");
+            cart.length = 0;
+            renderCart();
+
+            // Możliwość wysłania podsumowania zamówienia na e-mail
+          });
+        },
+      })
+      .render("#paypal-button-container");
+  }
 });
