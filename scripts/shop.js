@@ -61,12 +61,12 @@ document.addEventListener("DOMContentLoaded", () => {
     `;
 
     const emailData = {
-      to_email: "whitelotus.8@yahoo.com", // Zmienna email, do kogo ma być wysłany e-mail
-      subject: "Nowe zamówienie z Twojego sklepu", // Temat e-maila
-      message: emailContent, // Treść wiadomości
+      to_email: "whitelotus.8@yahoo.com",
+      subject: "Nowe zamówienie z Twojego sklepu",
+      message: emailContent,
     };
 
-    console.log("Email data:", emailData); // Sprawdź zawartość emailData
+    console.log("Email data:", emailData);
 
     emailjs
       .send("service_3dv4j7k", "template_a8row8p", emailData)
