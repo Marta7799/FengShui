@@ -52,21 +52,24 @@ document.addEventListener("DOMContentLoaded", () => {
     const orderDetails = cart
       .map((item) => `${item.name} – ${item.price} zł`)
       .join("\n");
-    const emailContent = `
-Nowe zamówienie:
-${orderDetails}
 
-Suma: ${total.toFixed(2)} zł
+    const emailContent = `
+  Nowe zamówienie:
+  ${orderDetails}
+  
+  Suma: ${total.toFixed(2)} zł
     `;
 
     const emailData = {
-      to_email: "whitelotus.8@yahoo.com",
-      subject: "Nowe zamówienie z Twojego sklepu",
-      message: emailContent,
+      to_email: "whitelotus.8@yahoo.com", // Zmienna email, do kogo ma być wysłany e-mail
+      subject: "Nowe zamówienie z Twojego sklepu", // Temat e-maila
+      message: emailContent, // Treść wiadomości
     };
 
+    console.log("Email data:", emailData); // Sprawdź zawartość emailData
+
     emailjs
-      .send("service_ensuvmi", "YOUR_TEMPLATE_ID", emailData)
+      .send("service_3dv4j7k", "template_a8row8p", emailData)
       .then((response) => {
         console.log("Email wysłany!", response);
       })
