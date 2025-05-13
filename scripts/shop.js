@@ -1,16 +1,16 @@
+emailjs.init("uljso8O4U8lcFMz3c");
+
 document.addEventListener("DOMContentLoaded", () => {
   const cart = [];
   let cartList = null;
   let totalEl = null;
   let checkoutButton = null;
 
-  // Funkcja inicjalizująca elementy
   function initElements() {
     cartList = document.getElementById("cart");
     totalEl = document.getElementById("total");
     checkoutButton = document.getElementById("checkout");
 
-    // Sprawdzenie, czy elementy istnieją
     if (!cartList || !totalEl || !checkoutButton) {
       console.error(
         "Nie znaleziono elementów koszyka, sumy lub przycisku zamówienia."
@@ -20,16 +20,8 @@ document.addEventListener("DOMContentLoaded", () => {
     return true;
   }
 
-  // Funkcja renderująca koszyk
   function renderCart() {
-    if (!initElements()) {
-      return; // Zatrzymaj renderowanie, jeśli elementy nie zostały poprawnie załadowane
-    }
-
-    if (!cartList || !totalEl) {
-      console.log("Nie znaleziono elementów koszyka lub sumy.");
-      return;
-    }
+    if (!initElements()) return;
 
     cartList.innerHTML = "";
     let total = 0;
@@ -50,14 +42,39 @@ document.addEventListener("DOMContentLoaded", () => {
 
     totalEl.textContent = total.toFixed(2);
 
-    // Ukrywamy przycisk PayPal na początku
     const paypalContainer = document.getElementById("paypal-button-container");
     if (paypalContainer) {
       paypalContainer.innerHTML = "";
     }
   }
 
-  // Obsługa kliknięć
+  function sendOrderEmail(cart, total) {
+    const orderDetails = cart
+      .map((item) => `${item.name} – ${item.price} zł`)
+      .join("\n");
+    const emailContent = `
+Nowe zamówienie:
+${orderDetails}
+
+Suma: ${total.toFixed(2)} zł
+    `;
+
+    const emailData = {
+      to_email: "whitelotus.8@yahoo.com",
+      subject: "Nowe zamówienie z Twojego sklepu",
+      message: emailContent,
+    };
+
+    emailjs
+      .send("service_ensuvmi", "YOUR_TEMPLATE_ID", emailData)
+      .then((response) => {
+        console.log("Email wysłany!", response);
+      })
+      .catch((err) => {
+        console.error("Błąd wysyłania e-maila", err);
+      });
+  }
+
   document.addEventListener("click", function (e) {
     if (e.target && e.target.classList.contains("add-to-cart")) {
       const product = e.target.closest(".product");
@@ -85,7 +102,6 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
       }
 
-      // Pokazanie przycisków PayPal po kliknięciu "Zamów"
       const total = parseFloat(totalEl.textContent);
       if (total > 0) {
         updatePayPalButton(total);
@@ -93,19 +109,16 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // Globalne udostępnienie renderCart (np. dla modal.js)
   window.renderCart = renderCart;
 
-  // ==== PAYPAL ====
   function updatePayPalButton(total) {
     const paypalContainer = document.getElementById("paypal-button-container");
     if (!paypalContainer) return;
 
-    paypalContainer.innerHTML = ""; // Wyczyść stare przyciski PayPal
+    paypalContainer.innerHTML = "";
 
     if (total === 0) return;
 
-    // Dodanie przycisków PayPal
     paypal
       .Buttons({
         createOrder: function (data, actions) {
@@ -122,10 +135,11 @@ document.addEventListener("DOMContentLoaded", () => {
         onApprove: function (data, actions) {
           return actions.order.capture().then(function (details) {
             alert("Dziękujemy, " + details.payer.name.given_name + "!");
+
+            sendOrderEmail(cart, total); // ⬅ Wysyłka e-maila po zatwierdzeniu płatności
+
             cart.length = 0;
             renderCart();
-
-            // Możliwość wysłania podsumowania zamówienia na e-mail
           });
         },
       })
