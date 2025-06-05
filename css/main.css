@@ -29,13 +29,14 @@ h1,
 h3 {
   text-transform: uppercase;
   font-size: 30px;
+  padding: 20px 0;
 }
 
 h2 {
   text-align: center;
   color: #c62828;
-  font-size: 30px;
   margin-bottom: 20px;
+  font-size: 30px;
   font-family: "Cormorant Garamond", serif;
 }
 
@@ -453,6 +454,11 @@ select {
   background: rgba(47, 51, 30, 0.7);
 }
 
+.border-text {
+  padding: 20px 0px;
+  border-top: 3px solid #c9a036;
+}
+
 .text-Fengshui {
   flex: 1;
   margin: 20px;
@@ -483,7 +489,7 @@ ul {
 .aboutUs {
   position: relative;
   width: 100%;
-  height: 100vh;
+  height: 90%;
   padding: 60px 10%;
   display: flex;
   flex-direction: row;
@@ -498,15 +504,14 @@ ul {
   width: 40%;
   height: auto;
   background: rgba(234, 217, 195, 0.5);
-  margin: 20px;
-  padding: 10px 30px;
-  font-size: 25px;
+  padding: 0 30px;
   color: black;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   text-align: justify;
+  font-size: 25px;
 }
 
 .bottom {

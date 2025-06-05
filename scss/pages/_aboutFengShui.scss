@@ -17,6 +17,10 @@
   display: flex;
   background: rgba(47, 51, 30, 0.7);
 }
+.border-text {
+  padding: 20px 0px;
+  border-top: 3px solid $color-highlight;
+}
 
 .text-Fengshui {
   flex: 1;
