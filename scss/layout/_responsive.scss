@@ -1,4 +1,14 @@
 @media (max-width: 1024px) {
+  .html {
+    overflow-y: auto;
+  }
+  html::-webkit-scrollbar {
+    display: none;
+  }
+  html {
+    scrollbar-width: none;
+    -ms-overflow-style: none; /* IE i Edge */
+  }
   .header {
     min-height: 150px;
   }
@@ -36,7 +46,13 @@
     font-size: 20px;
     margin: 10px 0;
   }
-
+  .bottom {
+    gap: 10px;
+  }
+  .logoAboutUs {
+    width: 20%;
+    height: 20%;
+  }
   .img-aboutUsWrapper {
     position: relative;
     bottom: auto;
@@ -51,6 +67,10 @@
     max-width: 400px;
     padding-bottom: 40px;
     border-bottom-width: 2px;
+  }
+  .lotus-aboutUs {
+    width: 90%;
+    height: 90%;
   }
 
   .chinese-labels {
@@ -112,9 +132,12 @@
     font-size: 18px;
     padding: 10px 15px;
   }
+  .bottom {
+    gap: 3px;
+  }
   .logoAboutUs {
-    width: 90px;
-    height: 80px;
+    width: 15%;
+    height: 15%;
   }
 
   .img-aboutUsWrapper {
@@ -124,12 +147,16 @@
   .img-aboutUs {
     max-width: 300px;
     padding-bottom: 30px;
+    justify-content: center;
   }
-
+  .lotus-aboutUs {
+    width: 70%;
+    height: 70%;
+  }
   .chinese-labels {
     font-size: 28px;
     bottom: 15px;
-    right: 2px;
+    // right: 8px;
   }
 
   .img-caption {

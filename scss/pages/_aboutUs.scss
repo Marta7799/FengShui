@@ -29,7 +29,8 @@
 .bottom {
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: center;
+  gap: 30px;
   margin-top: 20px;
 }
 .text-bottom {
@@ -38,8 +39,8 @@
   letter-spacing: 8px;
 }
 .logoAboutUs {
-  width: 157px;
-  height: 116px;
+  width: 30%;
+  height: 30%px;
 }
 
 .img-aboutUsWrapper {
@@ -60,7 +61,7 @@
   position: relative;
   width: 560px;
   padding-bottom: 50px;
-  border-bottom: 3px solid #d89333;
+  border-bottom: 3px solid $color-highlight;
 }
 .chinese-labels {
   position: absolute;
