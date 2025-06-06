@@ -1,18 +1,18 @@
 @media (max-width: 1024px) {
   .html {
-    overflow-y: auto;
+    overflow-y: hidden;
   }
   html::-webkit-scrollbar {
     display: none;
   }
   html {
     scrollbar-width: none;
-    -ms-overflow-style: none; /* IE i Edge */
+    -ms-overflow-style: none;
+    /* IE i Edge */
   }
   .header {
     min-height: 150px;
   }
-
   .header-links {
     bottom: 5;
   }
@@ -22,7 +22,6 @@
   #nav-links a {
     font-size: 25px;
   }
-
   .bg-logo {
     background: url("../images/grafika2.png") no-repeat;
     background-position: left 5vw top;
@@ -31,16 +30,16 @@
   .aboutFengShui {
     height: 90%;
   }
-
   .img-Fengshui {
-    margin-right: 50px;
+    justify-content: center;
+    align-items: center;
+    width: 70%;
   }
   .aboutUs {
     flex-direction: column;
     padding: 4rem 2rem;
     align-items: center;
   }
-
   .text-aboutUs.shadow-aboutUs {
     width: 100%;
     font-size: 18px;
@@ -58,7 +57,6 @@
     width: 20%;
     height: 20%;
   }
-
   .img-aboutUs {
     flex-direction: column;
     align-items: center;
@@ -68,13 +66,11 @@
     width: 40%;
     height: auto;
   }
-
   .chinese-labels {
     bottom: 20px;
     right: 0;
     font-size: 20px;
   }
-
   .img-caption {
     font-size: 14px;
     text-align: center;
@@ -86,48 +82,34 @@
     align-items: center;
     justify-content: flex-start;
   }
-
   .custom-header {
     min-height: 110px;
   }
-
   .header-links {
     display: none;
   }
-
   .header-links.open {
     display: flex;
     flex-direction: row;
     bottom: 5px;
   }
-
   #nav-links a {
     font-size: 17px;
     font-weight: bold;
-    color: $color-primary;
+    color: darkolivegreen;
   }
-
   .aboutFengShui {
     width: 100%;
   }
-
-  .shadow {
-    width: 100%;
-    flex-direction: column;
-    align-items: center;
-  }
-
   .text-Fengshui {
     font-size: 18px;
   }
-
   .img-Fengshui {
     margin: 0;
-    margin-bottom: 40px;
-    width: 80%;
+    justify-content: center;
   }
   .aboutUs {
-    padding: 3rem 1rem;
+    width: 100%;
   }
   .text-aboutUs .shadow-aboutUs {
     font-size: 12px;
@@ -138,39 +120,26 @@
     font-size: 12px;
   }
   .logoAboutUs {
-    // width: 15%;
-    // height: 15%;
     width: 50%;
   }
-
   .img-aboutUsWrapper {
     width: 100%;
     gap: 5px;
   }
-
-  // .lotus-aboutUs {
-  //   width: 70%;
-  //   height: 70%;
-  // }
   .chinese-labels {
     font-size: 30px;
     bottom: 10px;
     right: 0;
   }
-
   .img-caption {
     font-size: 18px;
-    // letter-spacing: 4px;
   }
-
   .button {
     width: 100%;
     padding: 14px;
     font-size: 1.1em;
   }
-
   .add-to-cart {
-    // width: 30%;
     margin: 0;
     padding: 2px;
     background-color: #7b4f1d;
