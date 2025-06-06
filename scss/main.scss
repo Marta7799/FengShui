@@ -2,11 +2,6 @@
 @import "base/reset";
 @import "base/typography";
 
-@import "layout/header";
-@import "layout/footer";
-@import "layout/main";
-@import "layout/responsive";
-
 @import "components/buttons";
 @import "components/form";
 @import "components/modal";
@@ -15,3 +10,8 @@
 @import "pages/aboutFengShui";
 @import "pages/aboutUs";
 @import "themes/theme";
+
+@import "layout/footer";
+@import "layout/header";
+@import "layout/main";
+@import "layout/responsive";
