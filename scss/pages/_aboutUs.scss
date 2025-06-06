@@ -1,8 +1,9 @@
 .aboutUs {
   position: relative;
-  width: 100%;
-  height: 90%;
-  padding: 60px 10%;
+  padding: 5rem 4rem;
+  margin-bottom: 40px;
+  width: calc(100% - 80px);
+  height: auto;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -13,26 +14,24 @@
   background-size: cover;
 }
 .text-aboutUs.shadow-aboutUs {
-  width: 40%;
+  width: 30%;
   height: auto;
   background: rgba(234, 217, 195, 0.5);
-  //   margin: 20px;
   padding: 0 30px;
+  margin-left: 50px;
   color: black;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   text-align: justify;
-  //   font-family: "Cinzel", serif;
-  font-size: 25px;
+  // font-family: "Cinzel", serif;
+  font-size: 30px;
 }
+
 .bottom {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 30px;
-  margin-top: 20px;
 }
 .text-bottom {
   text-transform: uppercase;
@@ -40,18 +39,19 @@
   letter-spacing: 8px;
 }
 .logoAboutUs {
-  width: 30%;
-  height: 30%px;
+  width: 40%;
+  height: 40%;
+  opacity: 0.9;
 }
 
 .img-aboutUsWrapper {
   position: absolute;
-  bottom: 70px;
-  right: 10%;
+  bottom: 110px;
+  right: 3%;
   display: flex;
   flex-direction: column;
   gap: 10px;
-  width: 560px;
+  width: 1100px;
 }
 
 .img-aboutUs {
@@ -60,23 +60,30 @@
   align-items: center;
   justify-content: space-between;
   position: relative;
-  width: 560px;
-  padding-bottom: 50px;
+  // width: 560px;
+  padding-bottom: 40px;
   border-bottom: 3px solid $color-highlight;
+}
+.lotus-aboutUs {
+  // width: 100%;
+  width: 67%;
+  height: 67%;
+  opacity: 0.5;
 }
 .chinese-labels {
   position: absolute;
-  bottom: 30px;
-  right: 0;
+  bottom: 70px;
+  right: 30px;
   display: flex;
   flex-direction: column;
-  font-size: 48px;
+  font-size: 110px;
   color: black;
   line-height: 1.2;
 }
 .img-caption {
-  font-size: 18px;
+  font-size: 35px;
   text-align: center;
+  letter-spacing: 8px;
   margin: 0;
   color: #fff;
   text-transform: uppercase;
