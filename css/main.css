@@ -421,7 +421,7 @@ header,
   background: linear-gradient(135deg, rgba(250, 252, 251, 0.3), rgba(224, 224, 224, 0.3));
 }
 
-@media (max-width: 1280px) {
+@media (max-width: 1366px) {
   html {
     overflow-y: auto;
     scrollbar-width: none;
@@ -436,6 +436,11 @@ header,
   .header-links {
     display: none;
     bottom: 5;
+  }
+  .header-links.open {
+    display: flex;
+    flex-direction: row;
+    bottom: 5px;
   }
   .hamburger {
     display: flex;
@@ -506,11 +511,6 @@ header,
   }
   .custom-header {
     min-height: 110px;
-  }
-  .header-links.open {
-    display: flex;
-    flex-direction: row;
-    bottom: 5px;
   }
   #nav-links a {
     font-size: 17px;
