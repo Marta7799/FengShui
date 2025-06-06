@@ -421,7 +421,7 @@ header,
   background: linear-gradient(135deg, rgba(250, 252, 251, 0.3), rgba(224, 224, 224, 0.3));
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1280px) {
   html {
     overflow-y: auto;
     scrollbar-width: none;
@@ -450,6 +450,7 @@ header,
   }
   .aboutFengShui {
     width: 100%;
+    margin-top: 20px;
   }
   .img-Fengshui {
     margin-right: 50px;
@@ -515,6 +516,9 @@ header,
     font-size: 17px;
     font-weight: bold;
     color: darkolivegreen;
+  }
+  .aboutFengShui {
+    margin-top: 0px;
   }
   .shadow {
     width: 100%;
