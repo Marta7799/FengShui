@@ -434,6 +434,7 @@ header,
     min-height: 150px;
   }
   .header-links {
+    display: none;
     bottom: 5;
   }
   .hamburger {
@@ -485,13 +486,16 @@ header,
     height: auto;
   }
   .chinese-labels {
+    flex-direction: row;
+    gap: 8px;
     bottom: 20px;
     right: 0;
-    font-size: 20px;
+    font-size: 30px;
+    color: whitesmoke;
   }
   .img-caption {
     font-size: 14px;
-    text-align: center;
+    text-align: right;
   }
 }
 @media (max-width: 819px) {
@@ -501,9 +505,6 @@ header,
   }
   .custom-header {
     min-height: 110px;
-  }
-  .header-links {
-    display: none;
   }
   .header-links.open {
     display: flex;
@@ -547,16 +548,14 @@ header,
     gap: 5px;
   }
   .chinese-labels {
-    flex-direction: row;
-    gap: 8px;
     font-size: 15px;
     bottom: 10px;
     right: 10px;
-    color: whitesmoke;
   }
   .img-caption {
     font-size: 14px;
     letter-spacing: 4px;
+    text-align: center;
   }
   .button {
     width: 100%;
