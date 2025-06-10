@@ -105,6 +105,10 @@ select {
   position: relative;
 }
 
+.hidden {
+  display: none;
+}
+
 .close {
   position: absolute;
   top: -10px;

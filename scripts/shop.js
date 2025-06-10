@@ -1,5 +1,4 @@
 emailjs.init("uljso8O4U8lcFMz3c");
-
 document.addEventListener("DOMContentLoaded", () => {
   const cart = [];
   let cartList = null;

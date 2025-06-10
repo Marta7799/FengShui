@@ -1,23 +1,29 @@
-// Funkcja otwierająca modal na podstawie id
-function openDetailModal(modalId) {
-  const modal = document.getElementById(`modal-${modalId}`);
-  if (modal) {
-    modal.classList.remove("hidden");
-  }
-}
+document.addEventListener("DOMContentLoaded", () => {
+  document.body.addEventListener("click", (e) => {
+    const link = e.target.closest(".more-link");
+    if (link) {
+      e.preventDefault();
+      const modalId = link.getAttribute("data-modal-id");
+      openDetailModal(modalId);
+      return; // ważne, żeby nie wykonać dalszych warunków
+    }
 
-// Dodaj event listener do każdego close-button, aby zamykać modal
-document.querySelectorAll(".modal .close").forEach((button) => {
-  button.addEventListener("click", () => {
-    button.closest(".modal").classList.add("hidden");
-  });
-});
+    if (e.target.classList.contains("close")) {
+      e.target.closest(".modal").classList.add("hidden");
+      return;
+    }
 
-// Zamknij modal po kliknięciu poza zawartością modal-content
-document.querySelectorAll(".modal").forEach((modal) => {
-  modal.addEventListener("click", (e) => {
-    if (e.target === modal) {
+    const modal = e.target.closest(".modal");
+    if (modal && e.target === modal) {
       modal.classList.add("hidden");
+      return;
     }
   });
+
+  function openDetailModal(modalId) {
+    const modal = document.getElementById(`modal-${modalId}`);
+    if (modal) {
+      modal.classList.remove("hidden");
+    }
+  }
 });
