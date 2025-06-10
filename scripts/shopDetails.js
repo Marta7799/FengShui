@@ -47,3 +47,36 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 });
+// document.addEventListener("DOMContentLoaded", () => {
+//   document.body.addEventListener("click", (e) => {
+//     const link = e.target.closest(".more-link");
+//     if (link) {
+//       e.preventDefault();
+//       const modalId = link.getAttribute("data-modal-id");
+//       const modal = document.getElementById(`modal-${modalId}`);
+//       if (modal) {
+//         modal.classList.remove("hidden");
+//       } else {
+//         console.warn(
+//           `Modal o ID modal-${modalId} nie został znaleziony w DOM.`
+//         );
+//       }
+//       return;
+//     }
+
+//     // Zamknięcie po kliknięciu w "x"
+//     if (e.target.classList.contains("close")) {
+//       const parentModal = e.target.closest(".modal");
+//       if (parentModal) {
+//         parentModal.classList.add("hidden");
+//       }
+//       return;
+//     }
+
+//     // Zamknięcie po kliknięciu w tło
+//     const modal = e.target.closest(".modal");
+//     if (modal && e.target === modal) {
+//       modal.classList.add("hidden");
+//     }
+//   });
+// });
