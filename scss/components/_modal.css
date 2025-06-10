@@ -71,6 +71,21 @@
   color: #555;
 }
 
+.more-btn {
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 5px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+  margin: 8px 0;
+}
+
+.more-btn:hover {
+  background: #0056b3;
+}
+
 .add-to-cart {
   margin-left: 20px;
   width: 30%;
