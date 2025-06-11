@@ -475,12 +475,12 @@ header,
 .custom-footer {
   background: linear-gradient(135deg, rgba(250, 252, 251, 0.3), rgba(224, 224, 224, 0.3));
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
   color: #333;
   padding: 20px 40px;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 200px;
 }
 
 .footer-left .logo {
@@ -493,8 +493,8 @@ header,
 }
 
 .social-icon {
-  width: 24px;
-  height: 24px;
+  width: 40px;
+  height: 40px;
   transition: transform 0.3s;
 }
 

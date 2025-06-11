@@ -6,12 +6,12 @@
     rgba(224, 224, 224, 0.3)
   );
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
   color: $color-text;
   padding: 20px 40px;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 200px;
 }
 
 .footer-left .logo {
@@ -24,8 +24,8 @@
 }
 
 .social-icon {
-  width: 24px;
-  height: 24px;
+  width: 40px;
+  height: 40px;
   // filter: brightness(0) invert(1);
   transition: transform 0.3s;
 }
@@ -41,6 +41,7 @@
   gap: 12px;
   flex-wrap: wrap;
   max-width: 100%;
+  // margin-left: 200px;
 }
 
 .inline-form input,
