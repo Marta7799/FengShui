@@ -473,8 +473,73 @@ header,
 }
 
 .custom-footer {
-  display: none;
   background: linear-gradient(135deg, rgba(250, 252, 251, 0.3), rgba(224, 224, 224, 0.3));
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  color: #333;
+  padding: 20px 40px;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.footer-left .logo {
+  height: 150px;
+}
+
+.footer-center {
+  display: flex;
+  gap: 15px;
+}
+
+.social-icon {
+  width: 24px;
+  height: 24px;
+  transition: transform 0.3s;
+}
+
+.social-icon:hover {
+  transform: scale(1.1);
+}
+
+.footer-right .inline-form {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  max-width: 100%;
+}
+
+.inline-form input,
+.inline-form button {
+  padding: 12px 16px;
+  font-size: 16px;
+  font-family: inherit;
+  border: none;
+  border-radius: 6px;
+  height: 48px;
+}
+
+.inline-form input {
+  background-color: #f5f5f5;
+  color: #222;
+  width: 220px;
+  flex-shrink: 0;
+}
+
+.inline-form button {
+  background-color: #c9a036;
+  color: #222;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 100px;
+  flex-shrink: 0;
+}
+
+.inline-form button:hover {
+  background-color: #e0e0e0;
 }
 
 @media (max-width: 1366px) {

@@ -106,10 +106,49 @@
       </section>
     </div>
     <footer class="custom-footer">
-      <div class="logo-container">
-        <img src="./images/logo.png" alt="White Lotus Logo" />
+      <div class="footer-left">
+        <img src="./images/logo.png" alt="White Lotus Logo" class="logo" />
+      </div>
+
+      <div class="footer-center">
+        <a
+          href="https://www.instagram.com/white.lotus_8/"
+          target="_blank"
+          aria-label="Instagram"
+        >
+          <img
+            src="./images/instagram-icon.jpg"
+            alt="Instagram Icon"
+            class="social-icon"
+          />
+        </a>
+        <a
+          href="https://www.facebook.com/twoj_profil"
+          target="_blank"
+          aria-label="Facebook"
+        >
+          <img
+            src="./images/facebook-icon.png"
+            alt="Facebook Icon"
+            class="social-icon"
+          />
+        </a>
+      </div>
+
+      <div class="footer-right">
+        <form
+          action="mailto:whitelotus.8@yahoo.com"
+          method="post"
+          enctype="text/plain"
+          class="inline-form"
+        >
+          <input type="email" name="email" placeholder="Twój email" required />
+          <input type="text" name="message" placeholder="Wiadomość" required />
+          <button class="form-submit" type="submit">Wyślij</button>
+        </form>
       </div>
     </footer>
+
     <div id="modals-container"></div>
     <script src="scripts/fengshui.js"></script>
     <script src="scripts/hamburger.js"></script>
