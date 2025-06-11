@@ -88,6 +88,27 @@
     font-size: 14px;
     text-align: right;
   }
+  .custom-footer {
+    // flex-direction: row;
+    gap: 40px;
+    padding: 20px;
+    text-align: center;
+  }
+
+  .footer-center {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .footer-right .inline-form {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .inline-form input,
+  .inline-form button {
+    width: 100%;
+  }
 }
 
 @media (max-width: 819px) {
@@ -171,5 +192,21 @@
     border-radius: 6px;
     cursor: pointer;
     font-size: 10px;
+  }
+  .footer-left .logo {
+    height: 100px;
+  }
+  .footer-center {
+    flex-direction: column;
+    gap: 5px;
+    margin-left: 20px;
+  }
+  .social-icon {
+    width: 32px;
+    height: 32px;
+  }
+
+  .custom-footer {
+    gap: 20px;
   }
 }
