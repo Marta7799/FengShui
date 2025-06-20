@@ -92,16 +92,33 @@ select {
 }
 
 .modal-content {
-  margin: 15% auto;
+  margin: 5% auto;
   padding: 20px;
-  width: 90%;
-  max-width: 700px;
   background-color: #fefefe;
   border: 1px solid #888;
   border-radius: 12px;
   display: flex;
   flex-direction: column;
   position: relative;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+#kalkulatorBazi .modal-content {
+  width: auto;
+  max-width: 500px;
+  min-width: 400px;
+}
+
+#shop .modal-content {
+  width: auto;
+  max-width: 900px;
+  min-width: 300px;
+}
+
+#qiMenModal .modal-content {
+  width: auto;
+  max-width: 980px;
+  min-width: 300px;
 }
 
 .hidden {
@@ -140,9 +157,9 @@ select {
   min-width: 200px; /* Jeśli chcesz wyrównać szerokość nazw produktów */
 }
 
-.product-name h3 {
+.product-name h4 {
   margin: 0 0 6px 0; /* Ustalony odstęp pod spodem */
-  font-size: 18px;
+  font-size: 22px;
 }
 
 .product-name p {
@@ -164,7 +181,7 @@ select {
 
 .add-to-cart {
   margin-left: 20px;
-  width: 30%;
+  width: 250px;
   padding: 8px 16px;
   background-color: #7b4f1d;
   color: white;
@@ -210,6 +227,71 @@ select {
   margin-right: auto;
 }
 
+.qi-men-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+  padding: 10px;
+}
+
+.qi-men-cell {
+  border: 1px solid #888;
+  padding: 8px;
+  min-height: 100px;
+  position: relative;
+  text-align: center;
+  font-family: "Noto Serif SC", serif;
+  background-color: #fffdf5;
+}
+
+.symbol {
+  display: block;
+  font-size: 18px;
+  margin: 2px 0;
+}
+
+.tooltip {
+  display: none;
+  position: absolute;
+  background: #fff;
+  color: #000;
+  border: 1px solid #ccc;
+  padding: 6px;
+  z-index: 999;
+  top: 5px;
+  left: 100%;
+  width: 140px;
+}
+
+.qi-men-cell:hover .tooltip {
+  display: block;
+}
+
+.symbol.energy-生 {
+  color: green;
+}
+
+.symbol.energy-死 {
+  color: gray;
+}
+
+.symbol.energy-開 {
+  color: navy;
+}
+
+.symbol.energy-休 {
+  color: blue;
+}
+
+.symbol.energy-驚 {
+  color: purple;
+}
+
+.symbol.energy-景 {
+  color: red;
+}
+
+/* Dodaj inne symbole jeśli trzeba */
 .hamburger {
   display: none;
   position: absolute;

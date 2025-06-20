@@ -1,4 +1,5 @@
-function openModal(modalId) {
+function openModal(modalId, event) {
+  if (event) event.preventDefault();
   const container = document.getElementById("modals-container");
 
   if (!document.getElementById(modalId)) {
@@ -7,6 +8,19 @@ function openModal(modalId) {
       .then((html) => {
         container.innerHTML += html;
 
+        // DYNAMICZNIE ZAŁADUJ SKRYPT
+        if (modalId === "qiMenModal") {
+          const script = document.createElement("script");
+          script.src = "scripts/qiMen.js";
+          script.onload = () => {
+            if (typeof initQiMen === "function") {
+              initQiMen();
+            } else {
+              console.warn("initQiMen nadal nie jest funkcją.");
+            }
+          };
+          document.body.appendChild(script);
+        }
         const modal = document.getElementById(modalId);
         if (modal) {
           modal.style.display = "block";
@@ -14,7 +28,9 @@ function openModal(modalId) {
             const cartList = document.getElementById("cart");
             const totalEl = document.getElementById("total");
             const checkout = document.getElementById("checkout");
-
+            if (typeof initQiMen === "function") {
+              initQiMen();
+            }
             if (typeof renderCart === "function") {
               renderCart();
             } else {

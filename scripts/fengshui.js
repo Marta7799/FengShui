@@ -147,34 +147,34 @@ function displayResults(
   resultsDiv.innerHTML = `
     <h2>Twój profil Feng Shui</h2>
     <div class="result-section">
-      <h3>Chiński znak zodiaku: <span class="highlight">${zodiacSign}</span></h3>
+      <h4>Chiński znak zodiaku: <span class="highlight">${zodiacSign}</span></h4>
       <p>Twój element urodzeniowy: <strong>${birthElement}</strong></p>
       <p>Twoja liczba Kua: <strong>${kuaNumber}</strong></p>
     </div>
 
     <div class="result-section">
-      <h3>Korzystne kierunki:</h3>
+      <h4>Korzystne kierunki:</h4>
       <ul>
         ${favorableDirections.map((dir) => `<li>${dir}</li>`).join("")}
       </ul>
     </div>
 
     <div class="result-section">
-      <h3>Niekorzystne kierunki:</h3>
+      <h4>Niekorzystne kierunki:</h4>
       <ul>
         ${unfavorableDirections.map((dir) => `<li>${dir}</li>`).join("")}
       </ul>
     </div>
 
     <div class="result-section">
-      <h3>Zalecane kolory:</h3>
+      <h4>Zalecane kolory:</h4>
       <ul>
         ${recommendedColors.map((color) => `<li>${color}</li>`).join("")}
       </ul>
     </div>
 
     <div class="result-section">
-      <h3>Najlepszy kierunek drzwi wejściowych:</h3>
+      <h4>Najlepszy kierunek drzwi wejściowych:</h4>
       <p>${bestDoorDirection}</p>
     </div>
   `;
