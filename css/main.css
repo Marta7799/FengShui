@@ -826,26 +826,35 @@ header,
     font-size: 10px;
   }
   .custom-footer-content {
-    flex-direction: column;
-    align-items: center;
-    padding: 0 40px;
-  }
-  .footer-left-group {
-    gap: 10px;
-    margin-bottom: 20px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+    align-items: flex-start;
+    gap: 30px;
+    padding: 20px;
   }
   .footer-left .logo {
     display: none;
   }
-  .footer-center {
-    margin-left: 0;
-    display: contents;
-    justify-content: center;
-    align-items: center;
+  .footer-left-group {
+    display: flex;
+    flex-direction: column;
+    order: 1;
   }
-  .inline-form input,
-  .inline-form textarea,
-  .inline-form button {
+  .footer-center {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-left: 0;
+  }
+  .footer-right {
+    order: 2;
+    flex: 1;
+    display: flex;
+    width: 100%;
+  }
+  .inline-form {
     width: 100%;
   }
 }
