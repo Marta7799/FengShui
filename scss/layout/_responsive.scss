@@ -88,23 +88,6 @@
     font-size: 14px;
     text-align: right;
   }
-  .custom-footer {
-    // flex-direction: row;
-    gap: 40px;
-    padding: 20px;
-    text-align: center;
-  }
-
-  .footer-center {
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-
-  .footer-right .inline-form {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
   .inline-form input,
   .inline-form button {
     width: 100%;
@@ -175,6 +158,16 @@
     letter-spacing: 4px;
     text-align: center;
   }
+  #kalkulatorBazi .modal-content {
+    width: auto;
+    max-width: 400px;
+    min-width: 300px;
+  }
+  .product {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
 
   .button {
     width: 100%;
@@ -196,20 +189,30 @@
     cursor: pointer;
     font-size: 10px;
   }
-  .footer-left .logo {
-    height: 100px;
-  }
-  .footer-center {
+  .custom-footer-content {
     flex-direction: column;
-    gap: 5px;
-    margin-left: 20px;
-  }
-  .social-icon {
-    width: 32px;
-    height: 32px;
+    align-items: center;
+    padding: 0 40px;
   }
 
-  .custom-footer {
-    gap: 20px;
+  .footer-left-group {
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  .footer-left .logo {
+    display: none;
+  }
+
+  .footer-center {
+    margin-left: 0;
+    display: contents;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .inline-form input,
+  .inline-form textarea,
+  .inline-form button {
+    width: 100%;
   }
 }
