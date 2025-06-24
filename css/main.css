@@ -523,7 +523,7 @@ header,
 
 .custom-header {
   min-height: 200px;
-  background: url("../images/napis-header.jpg") no-repeat center;
+  background: url("../../images/napis-header.jpg") no-repeat center;
   background-size: contain;
 }
 
@@ -546,6 +546,7 @@ header,
   width: 100%;
   display: flex;
   justify-content: flex-end;
+  margin-right: 80px;
 }
 .header-links a {
   margin: 0 20px;

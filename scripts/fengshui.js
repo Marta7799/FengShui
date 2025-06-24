@@ -21,7 +21,7 @@ function calculateFengShuiProfile() {
     return;
   }
 
-  const zodiacSign = calculateChineseZodiac(birthYear);
+  const { zodiacSign, zodiacElement } = getZodiacSignAndElement(birthYear);
   const birthElement = calculateBirthElement(birthYear);
   const kuaNumber = calculateKuaNumber(birthYear, gender);
   const favorableDirections = getFavorableDirections(kuaNumber);
@@ -30,6 +30,7 @@ function calculateFengShuiProfile() {
 
   displayResults(
     zodiacSign,
+    zodiacElement,
     birthElement,
     kuaNumber,
     favorableDirections,
@@ -37,9 +38,21 @@ function calculateFengShuiProfile() {
     recommendedColors
   );
 }
+function getZodiacSignAndElement(year) {
+  const heavenlyStems = [
+    "Drewno (Yang)", // 0
+    "Drewno (Yin)", // 1
+    "Ogień (Yang)", // 2
+    "Ogień (Yin)", // 3
+    "Ziemia (Yang)", // 4
+    "Ziemia (Yin)", // 5
+    "Metal (Yang)", // 6
+    "Metal (Yin)", // 7
+    "Woda (Yang)", // 8
+    "Woda (Yin)", // 9
+  ];
 
-function calculateChineseZodiac(year) {
-  const zodiacSigns = [
+  const earthlyBranches = [
     "Szczur",
     "Wół",
     "Tygrys",
@@ -53,7 +66,17 @@ function calculateChineseZodiac(year) {
     "Pies",
     "Świnia",
   ];
-  return zodiacSigns[(year - 4) % 12];
+
+  const cycleStart = 1984; // Rok Drewnianego Szczura
+  const offset = year - cycleStart;
+
+  const stemIndex = ((offset % 10) + 10) % 10;
+  const branchIndex = ((offset % 12) + 12) % 12;
+
+  return {
+    zodiacSign: earthlyBranches[branchIndex],
+    zodiacElement: heavenlyStems[stemIndex].split(" ")[0], // np. "Ogień"
+  };
 }
 
 function calculateBirthElement(year) {
@@ -134,6 +157,7 @@ function getRecommendedColors(element) {
 
 function displayResults(
   zodiacSign,
+  zodiacElement,
   birthElement,
   kuaNumber,
   favorableDirections,
@@ -147,7 +171,7 @@ function displayResults(
   resultsDiv.innerHTML = `
     <h2>Twój profil Feng Shui</h2>
     <div class="result-section">
-      <h4>Chiński znak zodiaku: <span class="highlight">${zodiacSign}</span></h4>
+      <h4>Chiński znak zodiaku: <span class="highlight">${zodiacSign}(${zodiacElement})</span></h4>
       <p>Twój element urodzeniowy: <strong>${birthElement}</strong></p>
       <p>Twoja liczba Kua: <strong>${kuaNumber}</strong></p>
     </div>
