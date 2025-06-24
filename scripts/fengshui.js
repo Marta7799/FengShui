@@ -62,6 +62,21 @@ const chineseNewYearDates = {
   2022: "2022-02-01",
   2023: "2023-01-22",
   2024: "2024-02-10",
+  2026: "2026-02-17",
+  2027: "2027-02-06",
+  2028: "2028-01-26",
+  2029: "2029-02-13",
+  2030: "2030-02-03",
+  2031: "2031-01-23",
+  2032: "2032-02-11",
+  2033: "2033-01-31",
+  2034: "2034-02-19",
+  2035: "2035-02-08",
+  2036: "2036-01-28",
+  2037: "2037-02-15",
+  2038: "2038-02-04",
+  2039: "2039-01-24",
+  2040: "2040-02-12",
 };
 
 function getAdjustedChineseYear(year, month, day) {
@@ -97,8 +112,8 @@ function calculateFengShuiProfile() {
 
   const adjustedYear = getAdjustedChineseYear(birthYear, birthMonth, birthDay);
   const { zodiacSign, zodiacElement } = getZodiacSignAndElement(adjustedYear);
-  const birthElement = calculateBirthElement(birthYear);
-  const kuaNumber = calculateKuaNumber(birthYear, gender);
+  const birthElement = calculateBirthElement(adjustedYear);
+  const kuaNumber = calculateKuaNumber(adjustedYear, gender);
   const favorableDirections = getFavorableDirections(kuaNumber);
   const unfavorableDirections = getUnfavorableDirections(kuaNumber);
   const recommendedColors = getRecommendedColors(birthElement);
