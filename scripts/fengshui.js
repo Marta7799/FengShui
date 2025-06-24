@@ -40,16 +40,16 @@ function calculateFengShuiProfile() {
 }
 function getZodiacSignAndElement(year) {
   const heavenlyStems = [
-    "Drewno (Yang)", // 0
-    "Drewno (Yin)", // 1
-    "Ogień (Yang)", // 2
-    "Ogień (Yin)", // 3
-    "Ziemia (Yang)", // 4
-    "Ziemia (Yin)", // 5
-    "Metal (Yang)", // 6
-    "Metal (Yin)", // 7
-    "Woda (Yang)", // 8
-    "Woda (Yin)", // 9
+    "Drewno Yang", // 0
+    "Drewno Yin", // 1
+    "Ogień Yang", // 2
+    "Ogień Yin", // 3
+    "Ziemia Yang", // 4
+    "Ziemia Yin", // 5
+    "Metal Yang", // 6
+    "Metal Yin", // 7
+    "Woda Yang", // 8
+    "Woda Yin", // 9
   ];
 
   const earthlyBranches = [
@@ -75,7 +75,7 @@ function getZodiacSignAndElement(year) {
 
   return {
     zodiacSign: earthlyBranches[branchIndex],
-    zodiacElement: heavenlyStems[stemIndex].split(" ")[0], // np. "Ogień"
+    zodiacElement: heavenlyStems[stemIndex],
   };
 }
 
