@@ -93,7 +93,6 @@ function generateQiMenGrid() {
       data.cells.forEach((cellData, index) => {
         const cell = document.createElement("div");
         cell.classList.add("qi-men-cell");
-        console.log("Dane z API:", data.cells);
         // Dodaj kierunek
         const direction = document.createElement("div");
         direction.className = "direction";
