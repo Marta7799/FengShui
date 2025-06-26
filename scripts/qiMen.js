@@ -106,7 +106,7 @@ function generateQiMenGrid() {
         const entries = [
           { label: "Gwiazda", value: cellData.star || "-" },
           { label: "Brama", value: cellData.gate || "-" },
-          { label: "Duch", value: cellData.spirit || "-" },
+          { label: "Duch", value: cellData.deity || "-" },
         ];
 
         entries.forEach(({ label, value }) => {
