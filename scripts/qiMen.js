@@ -1,4 +1,38 @@
 const qiMenLang = "pl";
+const symbolMap = {
+  // Gwiazdy
+  "Tian Xin": "天心",
+  "Tian Rui": "天瑞",
+  "Tian Chong": "天沖",
+  "Tian Fu": "天輔",
+  "Tian Ying": "天英",
+  "Tian Peng": "天蓬",
+  "Tian Ren": "天任",
+  "Tian Zhu": "天柱",
+  "Tian Ji": "天機",
+
+  // Bramy
+  Open: "開",
+  Rest: "休",
+  Life: "生",
+  Harm: "傷",
+  Delusion: "杜",
+  Scene: "景",
+  Death: "死",
+  Fear: "驚",
+  Injury: "傷",
+
+  // Duchy
+  "White Tiger": "白虎",
+  "Black Tortoise": "玄武",
+  "Nine Heaven": "九天",
+  "Nine Earth": "九地",
+  "Six Harmony": "六合",
+  Chief: "直符",
+  Snake: "螣蛇",
+  Moon: "太陰",
+  Sun: "太陽",
+};
 
 const energyColors = {
   生: "#4CAF50", // life - green
@@ -90,6 +124,8 @@ function generateQiMenGrid() {
   fetch("https://api.whitelotus8.pl/api/qimen")
     .then((res) => res.json())
     .then((data) => {
+      data.cells.sort((a, b) => a.position - b.position);
+      console.log("cells from API:", data.cells);
       data.cells.forEach((cellData, index) => {
         const cell = document.createElement("div");
         cell.classList.add("qi-men-cell");
@@ -104,12 +140,16 @@ function generateQiMenGrid() {
         wrapper.className = "symbols-wrapper";
 
         const entries = [
-          { label: "Gwiazda", value: cellData.star || "-" },
-          { label: "Brama", value: cellData.gate || "-" },
-          { label: "Duch", value: cellData.deity || "-" },
+          { label: "Gwiazda", key: "star" },
+          { label: "Brama", key: "gate" },
+          { label: "Duch", key: "deity" },
         ];
 
-        entries.forEach(({ label, value }) => {
+        entries.forEach(({ label, key }) => {
+          const raw = cellData[key];
+          const clean = raw?.trim?.();
+          const value = symbolMap[clean] || clean || "-";
+
           const pair = document.createElement("div");
           pair.className = `symbol-pair-vertical ${getEnergyClass(value)}`;
 
@@ -131,12 +171,23 @@ function generateQiMenGrid() {
         // Tooltip z opisem
         const tooltip = document.createElement("div");
         tooltip.className = "tooltip";
+        const cleanStar = cellData.star?.trim?.();
+        const cleanGate = cellData.gate?.trim?.();
+        const cleanDeity = cellData.deity?.trim?.();
+
         tooltip.innerText = `
-Kierunek: ${directions[index]}
-Gwiazda: ${cellData.star} - ${describeSymbol(cellData.star)}
-Brama: ${cellData.gate} - ${describeSymbol(cellData.gate)}
-Duch: ${cellData.spirit} - ${describeSymbol(cellData.spirit)}
+        Kierunek: ${directions[index]}
+        Gwiazda: ${symbolMap[cleanStar] || cleanStar} - ${describeSymbol(
+          symbolMap[cleanStar] || cleanStar
+        )}
+        Brama: ${symbolMap[cleanGate] || cleanGate} - ${describeSymbol(
+          symbolMap[cleanGate] || cleanGate
+        )}
+        Duch: ${symbolMap[cleanDeity] || cleanDeity} - ${describeSymbol(
+          symbolMap[cleanDeity] || cleanDeity
+        )}
         `.trim();
+
         cell.appendChild(tooltip);
 
         grid.appendChild(cell);
