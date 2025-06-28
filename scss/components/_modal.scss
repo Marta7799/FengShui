@@ -207,18 +207,17 @@
 .tooltip:hover .tooltip {
   display: block;
 }
-
-.symbol-pair-vertical.positive .symbol,
-.symbol-pair-vertical.positive .label {
+.symbol.positive,
+.label.positive {
   color: #4caf50;
 }
 
-.symbol-pair-vertical.negative .symbol,
-.symbol-pair-vertical.negative .label {
+.symbol.negative,
+.label.negative {
   color: #f44336;
 }
 
-.symbol-pair-vertical.neutral .symbol,
-.symbol-pair-vertical.neutral .label {
+.symbol.neutral,
+.label.neutral {
   color: #9e9e9e;
 }

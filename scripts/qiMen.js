@@ -2,25 +2,41 @@ const qiMenLang = "pl";
 const symbolMap = {
   // Gwiazdy
   "Tian Xin": "天心",
+  Xin: "天心",
   "Tian Rui": "天瑞",
+  Rui: "天瑞",
   "Tian Chong": "天沖",
+  Chong: "天沖",
   "Tian Fu": "天輔",
+  Fu: "天輔",
   "Tian Ying": "天英",
+  Ying: "天英",
   "Tian Peng": "天蓬",
+  Peng: "天蓬",
   "Tian Ren": "天任",
+  Ren: "天任",
   "Tian Zhu": "天柱",
+  Zhu: "天柱",
   "Tian Ji": "天機",
+  Ji: "天機",
 
   // Bramy
   Open: "開",
+  Kai: "開",
   Rest: "休",
+  Xiu: "休",
   Life: "生",
+  Sheng: "生",
   Harm: "傷",
+  Shang: "傷",
   Delusion: "杜",
+  Du: "杜",
   Scene: "景",
+  Jing: "景",
   Death: "死",
+  Si: "死",
   Fear: "驚",
-  Injury: "傷",
+  Jing2: "驚",
 
   // Duchy
   "White Tiger": "白虎",
@@ -169,22 +185,25 @@ function generateQiMenGrid() {
           { label: "Brama", key: "gate" },
           { label: "Duch", key: "deity" },
         ];
-
         entries.forEach(({ label, key }) => {
-          const raw = cellData[key];
-          const clean = raw?.trim?.();
-          const value = symbolMap[clean] || clean || "-";
+          const raw = cellData[key]?.trim?.();
+          const value = symbolMap[raw] || raw || "-";
 
           const pair = document.createElement("div");
-          pair.className = `symbol-pair-vertical ${getEnergyClass(value)}`;
+          pair.classList.add("symbol-pair-vertical");
+
+          const energyClass = getEnergyClass(value);
 
           const symbol = document.createElement("div");
-          symbol.className = `symbol ${getEnergyClass(value)}`;
+          symbol.classList.add("symbol", energyClass);
           symbol.textContent = value;
-          symbol.title = raw || "-"; // Tooltip na symbol
+
+          if (energyColors[value]) {
+            symbol.style.color = energyColors[value];
+          }
 
           const text = document.createElement("div");
-          text.className = `label ${getEnergyClass(value)}`;
+          text.classList.add("label", energyClass);
           text.textContent = label;
 
           pair.appendChild(symbol);
