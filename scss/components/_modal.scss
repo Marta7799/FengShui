@@ -157,9 +157,13 @@
   background-color: #f8f8f8;
   min-height: 140px;
 }
-.direction {
-  margin-bottom: 6px;
+.qi-men-cell .direction {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  font-size: 0.85em;
   font-weight: bold;
+  z-index: 1;
 }
 
 .symbols-wrapper {
@@ -200,7 +204,7 @@
   z-index: 10;
 }
 
-&:hover .tooltip {
+.tooltip:hover .tooltip {
   display: block;
 }
 
