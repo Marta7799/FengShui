@@ -86,5 +86,24 @@
       <div id="paypal-button-container"></div>
       <!-- Przycisk do zamówienia -->
     </div>
+    <div id="bank-transfer-info" style="display: none; margin-top: 20px">
+      <p>
+        Po potwierdzeniu zamówienia dane do przelewu zostaną wysłane na podany
+        e-mail.
+      </p>
+
+      <div id="email-confirmation" style="margin-top: 20px">
+        <label for="user-email"
+          >Podaj swój e-mail, aby potwierdzić zamówienie:</label
+        ><br />
+        <input
+          type="email"
+          id="user-email"
+          placeholder="twój@email.com"
+          required
+        /><br /><br />
+        <button id="confirm-order">Potwierdź zamówienie</button>
+      </div>
+    </div>
   </div>
 </div>

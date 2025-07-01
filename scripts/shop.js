@@ -1,19 +1,35 @@
 emailjs.init("uljso8O4U8lcFMz3c");
+
 document.addEventListener("DOMContentLoaded", () => {
   const cart = [];
   let cartList = null;
   let totalEl = null;
   let checkoutButton = null;
+  let bankTransferInfo = null;
+  let userEmailInput = null;
+  let confirmOrderButton = null;
+
+  function generateOrderId() {
+    return Math.random().toString(36).substring(2, 8).toUpperCase();
+  }
 
   function initElements() {
     cartList = document.getElementById("cart");
     totalEl = document.getElementById("total");
     checkoutButton = document.getElementById("checkout");
+    bankTransferInfo = document.getElementById("bank-transfer-info");
+    userEmailInput = document.getElementById("user-email");
+    confirmOrderButton = document.getElementById("confirm-order");
 
-    if (!cartList || !totalEl || !checkoutButton) {
-      console.error(
-        "Nie znaleziono elementów koszyka, sumy lub przycisku zamówienia."
-      );
+    if (
+      !cartList ||
+      !totalEl ||
+      !checkoutButton ||
+      !bankTransferInfo ||
+      !userEmailInput ||
+      !confirmOrderButton
+    ) {
+      console.error("Brak niezbędnych elementów w DOM.");
       return false;
     }
     return true;
@@ -41,43 +57,48 @@ document.addEventListener("DOMContentLoaded", () => {
 
     totalEl.textContent = total.toFixed(2);
 
-    const paypalContainer = document.getElementById("paypal-button-container");
-    if (paypalContainer) {
-      paypalContainer.innerHTML = "";
-    }
+    // Ukryj info o przelewie i email, bo to po zamówieniu ma się pokazać
+    bankTransferInfo.style.display = "none";
+    userEmailInput.value = "";
   }
 
-  function sendOrderEmail(cart, total) {
+  function sendCustomerEmail(email, orderId, cart, total) {
     const orderDetails = cart
       .map((item) => `${item.name} – ${item.price} zł`)
       .join("\n");
 
-    const emailContent = `
-  Nowe zamówienie:
-  ${orderDetails}
-  
-  Suma: ${total.toFixed(2)} zł
-    `;
-
     const emailData = {
-      to_email: "whitelotus.8@yahoo.com",
-      subject: "Nowe zamówienie z Twojego sklepu",
-      message: emailContent,
+      to_email: email,
+      subject: "Potwierdzenie Twojego zamówienia w sklepie White Lotus",
+      order_id: orderId,
+      orders: orderDetails,
+      shipping: "0",
+      tax: "0",
+      total: total.toFixed(2),
+      email: email,
     };
 
-    console.log("Email data:", emailData);
-
-    emailjs
-      .send("service_3dv4j7k", "template_a8row8p", emailData)
-      .then((response) => {
-        console.log("Email wysłany!", response);
-      })
-      .catch((err) => {
-        console.error("Błąd wysyłania e-maila", err);
-      });
+    return emailjs.send("service_3dv4j7k", "template_hc9wtp2", emailData);
   }
 
-  document.addEventListener("click", function (e) {
+  function sendAdminEmail(email, orderId, cart, total) {
+    const orderDetails = cart
+      .map((item) => `${item.name} – ${item.price} zł`)
+      .join("\n");
+
+    const emailData = {
+      to_email: "whitelotus.8@yahoo.com", // Twój e-mail admina
+      subject: "Nowe zamówienie w sklepie White Lotus",
+      order_id: orderId,
+      orders: orderDetails,
+      total: total.toFixed(2),
+      email: email,
+    };
+
+    return emailjs.send("service_3dv4j7k", "template_8t0252c", emailData);
+  }
+
+  document.addEventListener("click", (e) => {
     if (e.target && e.target.classList.contains("add-to-cart")) {
       const product = e.target.closest(".product");
       if (!product) return;
@@ -104,47 +125,41 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
       }
 
-      const total = parseFloat(totalEl.textContent);
-      if (total > 0) {
-        updatePayPalButton(total);
+      if (!initElements()) return;
+
+      bankTransferInfo.style.display = "block";
+    }
+
+    if (e.target && e.target.id === "confirm-order") {
+      const email = userEmailInput.value.trim();
+      if (!email) {
+        alert("Podaj poprawny adres e-mail.");
+        return;
       }
+
+      const total = parseFloat(totalEl.textContent);
+      const orderId = generateOrderId();
+
+      Promise.all([
+        sendCustomerEmail(email, orderId, cart, total),
+        sendAdminEmail(email, orderId, cart, total),
+      ])
+        .then(() => {
+          alert(
+            "Dziękujemy za zamówienie! Dane do przelewu zostały wysłane na Twój e-mail."
+          );
+          cart.length = 0;
+          renderCart();
+          bankTransferInfo.style.display = "none";
+        })
+        .catch((err) => {
+          console.error("Błąd podczas wysyłania e-maili:", err);
+          alert(
+            "Wystąpił błąd podczas potwierdzania zamówienia. Spróbuj ponownie."
+          );
+        });
     }
   });
 
   window.renderCart = renderCart;
-
-  function updatePayPalButton(total) {
-    const paypalContainer = document.getElementById("paypal-button-container");
-    if (!paypalContainer) return;
-
-    paypalContainer.innerHTML = "";
-
-    if (total === 0) return;
-
-    paypal
-      .Buttons({
-        createOrder: function (data, actions) {
-          return actions.order.create({
-            purchase_units: [
-              {
-                amount: {
-                  value: total.toFixed(2),
-                },
-              },
-            ],
-          });
-        },
-        onApprove: function (data, actions) {
-          return actions.order.capture().then(function (details) {
-            alert("Dziękujemy, " + details.payer.name.given_name + "!");
-
-            sendOrderEmail(cart, total); // ⬅ Wysyłka e-maila po zatwierdzeniu płatności
-
-            cart.length = 0;
-            renderCart();
-          });
-        },
-      })
-      .render("#paypal-button-container");
-  }
 });
