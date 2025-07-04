@@ -257,12 +257,19 @@ function updateModalHeaderDateTime() {
 function initQiMen() {
   updateModalHeaderDateTime();
   generateQiMenGrid();
+
+  // 🧹 Czyść stary timer jeśli istnieje
   if (window.modalTimer) clearInterval(window.modalTimer);
+
+  // ⏱ Odświeżanie czasu co sekundę
   window.modalTimer = setInterval(() => {
     updateModalHeaderDateTime();
-    // Refresh every 2 hours (for now simulate with shorter interval in development)
-    if (new Date().getMinutes() % 2 === 0 && new Date().getSeconds() === 0) {
-      generateQiMenGrid(); // In real version: fetch new data
-    }
   }, 1000);
+
+  // 🔁 Co 2h: 2 * 60 * 60 * 1000 = 7200000
+  if (window.refreshTimer) clearInterval(window.refreshTimer);
+  window.refreshTimer = setInterval(() => {
+    console.log("🔁 Auto-refresh QiMen");
+    generateQiMenGrid();
+  }, 7200000); // 2h
 }
