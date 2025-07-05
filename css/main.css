@@ -81,6 +81,7 @@ select {
 }
 
 .modal {
+  display: none;
   position: fixed;
   top: 0;
   left: 0;
@@ -782,10 +783,15 @@ header,
   .custom-header {
     min-height: 110px;
   }
+  .header-links {
+    justify-content: center;
+    margin: 0 auto;
+  }
   #nav-links a {
-    font-size: 17px;
+    font-size: 15px;
     font-weight: bold;
     color: darkolivegreen;
+    margin: 0 10px;
   }
   .aboutFengShui {
     margin-top: 0px;

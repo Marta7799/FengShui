@@ -120,7 +120,7 @@ function createQiMenCell(data) {
     const el = document.createElement("div");
     el.className = "symbol";
     el.textContent = sym;
-    if (energyColors[sym]) el.style.color = energyColors[sym];
+    // if (energyColors[sym]) el.style.color = energyColors[sym];
     cell.appendChild(el);
   });
 
@@ -198,9 +198,9 @@ function generateQiMenGrid() {
           symbol.classList.add("symbol", energyClass);
           symbol.textContent = value;
 
-          if (energyColors[value]) {
-            symbol.style.color = energyColors[value];
-          }
+          // if (energyColors[value]) {
+          //   symbol.style.color = energyColors[value];
+          // }
 
           const text = document.createElement("div");
           text.classList.add("label", energyClass);
@@ -255,6 +255,11 @@ function updateModalHeaderDateTime() {
 }
 
 function initQiMen() {
+  const grid = document.getElementById("qiMenGrid");
+  if (!grid) {
+    console.warn("Nie znaleziono elementu #qiMenGrid");
+    return;
+  }
   updateModalHeaderDateTime();
   generateQiMenGrid();
 

@@ -115,12 +115,18 @@
   .custom-header {
     min-height: 110px;
   }
+  .header-links {
+    justify-content: center;
+    margin: 0 auto;
+  }
 
   #nav-links a {
-    font-size: 17px;
+    font-size: 15px;
     font-weight: bold;
     color: $color-primary;
+    margin: 0 10px;
   }
+
   .aboutFengShui {
     margin-top: 0px;
   }

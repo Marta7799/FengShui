@@ -1,3 +1,12 @@
+function closeModal(modalId) {
+  const modal = document.getElementById(modalId);
+  if (modal) {
+    console.log(`Zamykam modal ${modalId}`);
+    modal.style.display = "none";
+  } else {
+    console.warn(`Modal o id ${modalId} nieznaleziony.`);
+  }
+}
 function openModal(modalId, event) {
   if (event) event.preventDefault();
   const container = document.getElementById("modals-container");
@@ -6,19 +15,12 @@ function openModal(modalId, event) {
     const modal = document.getElementById(modalId);
     if (modal) {
       modal.style.display = "block";
-
+      if (modalId === "qiMenModal" && typeof initQiMen === "function") {
+        initQiMen();
+      }
       const closeButton = modal.querySelector(".close");
       if (closeButton) {
-        closeButton.addEventListener("click", () => closeModal(modalId));
-      }
-    }
-    function closeModal(modalId) {
-      const modal = document.getElementById(modalId);
-      if (modal) {
-        console.log(`Zamykam modal ${modalId}`);
-        modal.style.display = "none";
-      } else {
-        console.warn(`Modal o id ${modalId} nie znaleziony.`);
+        closeButton.onClick = () => closeModal(modalId);
       }
     }
   };
