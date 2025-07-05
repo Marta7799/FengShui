@@ -63,9 +63,9 @@ const energyColors = {
   合: "#00BCD4", // harmony - cyan
 };
 const energyMeaning = {
-  positive: ["開", "生", "休", "天心", "六合", "太陰", "直符"],
-  negative: ["死", "驚", "傷", "白虎", "螣蛇", "勾陳"],
-  neutral: ["杜", "景", "玄武", "九地", "九天"],
+  positive: ["開", "生", "休", "天心", "天輔", "天任", "六合", "太陰", "直符"],
+  negative: ["死", "驚", "傷", "白虎", "螣蛇", "勾陳", "天沖", "天蓬", "天柱"],
+  neutral: ["杜", "景", "玄武", "九地", "九天", "天英", "天機", "天瑞"],
 };
 
 const directions = ["SE", "S", "SW", "E", "Center", "W", "NE", "N", "NW"];
