@@ -235,8 +235,9 @@ select {
 #qiMenGrid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-gap: 2px;
-  border: 2px solid #000;
+  grid-template-rows: repeat(3, auto);
+  gap: 12px;
+  padding: 10px;
 }
 
 .qi-men-cell {
@@ -260,6 +261,14 @@ select {
   z-index: 1;
 }
 
+.description {
+  font-size: 0.7em;
+  color: #666;
+  text-align: center;
+  margin-top: 0.2em;
+  line-height: 1.1;
+}
+
 .symbols-wrapper {
   display: flex;
   flex-direction: column;
@@ -268,6 +277,7 @@ select {
 }
 
 .symbol-pair-vertical {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -286,19 +296,26 @@ select {
 
 .tooltip {
   position: absolute;
-  top: 5px;
-  left: 5px;
-  background: rgba(0, 0, 0, 0.75);
+  top: 100%;
+  left: 50%;
+  transform: translate(-50%, -10px);
+  background: rgba(0, 0, 0, 0.85);
   color: #fff;
-  padding: 8px;
+  padding: 6px 8px;
   font-size: 0.75em;
-  max-width: 160px;
+  white-space: nowrap;
+  max-width: 200px;
   border-radius: 4px;
   display: none;
-  z-index: 10;
+  pointer-events: none;
+  z-index: 999;
 }
 
-.tooltip:hover .tooltip {
+.symbol-pair-vertical:hover .tooltip {
+  display: block;
+}
+
+.qi-men-cell:hover .tooltip {
   display: block;
 }
 

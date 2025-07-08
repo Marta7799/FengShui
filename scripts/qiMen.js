@@ -37,6 +37,8 @@ const symbolMap = {
   Si: "死",
   Fear: "驚",
   Jing2: "驚",
+  Moon: "太陰",
+  Destruction: "破",
 
   // Duchy
   "White Tiger": "白虎",
@@ -81,6 +83,14 @@ const cellsData = [
   { palace: "Kan", symbols: ["合", "死", "癸"], star: "死", gate: "陰" },
   { palace: "Qian", symbols: ["陰", "景", "丙"], star: "景", gate: "開" },
 ];
+
+const reverseSymbolMap = {};
+for (const [key, value] of Object.entries(symbolMap)) {
+  if (!reverseSymbolMap[value]) {
+    reverseSymbolMap[value] = key;
+  }
+}
+
 function getEnergyClass(symbol) {
   if (energyMeaning.positive.includes(symbol)) return "positive";
   if (energyMeaning.negative.includes(symbol)) return "negative";
@@ -108,6 +118,14 @@ function describeSymbol(symbol) {
     九天: "Inspiracja, wyższe cele",
     九地: "Fundament, stabilność",
     直符: "Autorytet, zgodność",
+    破: "Zniszczenie, zakłócenia, nagła zmiana",
+    太陽: "Jasność, motywacja, pozytywna energia",
+    天瑞: "Szczęście, dobre wieści, błogosławieństwo",
+    天沖: "Impulsywność, konflikt, gwałtowne zmiany",
+    天英: "Talenty, błyskotliwość, sława",
+    天蓬: "Ciemność, ryzyko, niejasności, skrajności",
+    天柱: "Upór, stagnacja, przeszkody",
+    天機: "Intelekt, strategia, mądrość",
   };
   return descriptions[symbol] || "Brak opisu";
 }
@@ -131,7 +149,6 @@ function createQiMenCell(data) {
 
   return cell;
 }
-
 function generateQiMenGrid() {
   const directions = ["SE", "S", "SW", "E", "Center", "W", "NE", "N", "NW"];
   const grid = document.getElementById("qiMenGrid");
@@ -140,9 +157,6 @@ function generateQiMenGrid() {
   fetch("https://api.whitelotus8.pl/api/qimen")
     .then((res) => res.json())
     .then((data) => {
-      console.log("FULL RESPONSE:", data);
-
-      // Uzupełnij deity, jeśli go brakuje
       const deityList = [
         "White Tiger",
         "Black Tortoise",
@@ -154,29 +168,29 @@ function generateQiMenGrid() {
         "Moon",
         "Sun",
       ];
-      data.cells.forEach((cell, index) => {
-        if (!cell.deity) {
-          cell.deity = deityList[index % 9];
-        }
-        // Ewentualnie dopasuj inne klucze z API:
-        if (cell.door && !cell.gate) {
-          cell.gate = cell.door;
-        }
-      });
+      const sortedCells = data.cells.slice(0, 9);
 
-      data.cells.sort((a, b) => a.position - b.position);
-
-      data.cells.forEach((cellData, index) => {
+      // Uzupełnij puste komórki domyślnymi
+      for (let i = 0; i < 9; i++) {
+        if (!sortedCells[i]) {
+          sortedCells[i] = {
+            position: i,
+            star: "-",
+            gate: "-",
+            deity: "-",
+          };
+        }
+      }
+      const limitedCells = sortedCells.slice(0, 9);
+      limitedCells.forEach((cellData, index) => {
         const cell = document.createElement("div");
         cell.classList.add("qi-men-cell");
 
-        // Kierunek
         const direction = document.createElement("div");
         direction.className = "direction";
         direction.textContent = directions[index];
         cell.appendChild(direction);
 
-        // Wrapper
         const wrapper = document.createElement("div");
         wrapper.className = "symbols-wrapper";
 
@@ -185,52 +199,38 @@ function generateQiMenGrid() {
           { label: "Brama", key: "gate" },
           { label: "Duch", key: "deity" },
         ];
-        entries.forEach(({ label, key }) => {
-          const raw = cellData[key]?.trim?.();
-          const value = symbolMap[raw] || raw || "-";
+
+        entries.forEach(({ key }) => {
+          const raw = (cellData?.[key] || "").toString().trim();
+          const isChinese = /[\u3400-\u9FBF]/.test(raw); // prosty test znaków chińskich
+          const hanzi = isChinese ? raw : symbolMap[raw] || raw || "-";
+          const latin = isChinese ? reverseSymbolMap[raw] || "-" : raw;
+          const desc = describeSymbol(hanzi);
+          const energyClass = getEnergyClass(hanzi);
 
           const pair = document.createElement("div");
           pair.classList.add("symbol-pair-vertical");
 
-          const energyClass = getEnergyClass(value);
+          const symbolEl = document.createElement("div");
+          symbolEl.classList.add("symbol", energyClass);
+          symbolEl.textContent = hanzi;
 
-          const symbol = document.createElement("div");
-          symbol.classList.add("symbol", energyClass);
-          symbol.textContent = value;
+          const latinEl = document.createElement("div");
+          latinEl.classList.add("label", energyClass);
+          latinEl.textContent = latin;
 
-          // if (energyColors[value]) {
-          //   symbol.style.color = energyColors[value];
-          // }
+          // Tooltip (tylko na hover)
+          const tooltip = document.createElement("div");
+          tooltip.className = "tooltip";
+          tooltip.textContent = `${desc}`;
+          pair.appendChild(tooltip);
 
-          const text = document.createElement("div");
-          text.classList.add("label", energyClass);
-          text.textContent = label;
-
-          pair.appendChild(symbol);
-          pair.appendChild(text);
+          pair.appendChild(symbolEl);
+          pair.appendChild(latinEl);
           wrapper.appendChild(pair);
         });
 
         cell.appendChild(wrapper);
-
-        // Tooltip całego pola
-        const tooltip = document.createElement("div");
-        tooltip.className = "tooltip";
-
-        const getDescription = (key) => {
-          const raw = cellData[key]?.trim?.();
-          const symbol = symbolMap[raw] || raw || "-";
-          return `${symbol} - ${describeSymbol(symbol)}`;
-        };
-
-        tooltip.innerText = `
-Kierunek: ${directions[index]}
-Gwiazda: ${getDescription("star")}
-Brama: ${getDescription("gate")}
-Duch: ${getDescription("deity")}
-        `.trim();
-
-        cell.appendChild(tooltip);
         grid.appendChild(cell);
       });
     })
