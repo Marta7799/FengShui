@@ -36,7 +36,6 @@ h2 {
   color: #c62828;
   margin-bottom: 20px;
   font-size: 30px;
-  font-family: "Cormorant Garamond", serif;
 }
 
 label {
@@ -474,7 +473,7 @@ ul {
   width: 30%;
   height: auto;
   background: rgba(234, 217, 195, 0.5);
-  padding: 0 30px;
+  padding: 20px 30px;
   margin-left: 70px;
   color: black;
   box-sizing: border-box;
@@ -609,19 +608,48 @@ ul {
 }
 
 .zodiac-back {
-  position: absolute;
-  bottom: 10px;
-  width: 100%;
-  display: flex;
-  justify-content: flex-end;
-  margin-right: 80px;
-  margin: 0 20px;
+  display: block;
+  text-align: right;
+  margin: 40px 80px;
+  font-weight: 600;
+  font-size: 24px;
+  text-decoration: none;
   color: darkolivegreen;
-  font-weight: bold;
-  font-size: 25px;
 }
 .zodiac-back:hover {
   color: #607d8b;
+}
+
+.zodiac-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 80px;
+  font-size: 45px;
+}
+
+.zodiac-images {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.zodiac-images img {
+  width: 500px;
+  height: 500px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.zodiac-description {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  text-align: justify;
+  padding: 0 1rem;
 }
 
 header,
