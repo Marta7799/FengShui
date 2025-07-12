@@ -27,6 +27,11 @@
   #nav-links a {
     font-size: 25px;
   }
+  .zodiac-grid {
+    grid-template-columns: repeat(3, 1fr);
+    padding: 5px;
+    margin-top: 80px;
+  }
 
   .bg-logo {
     background: url("../../images/logo-transparent.png") no-repeat;
@@ -126,7 +131,22 @@
     color: $color-primary;
     margin: 0 10px;
   }
-
+  .header-zodiac {
+    margin-right: 35px;
+  }
+  .header-zodiac a {
+    font-size: 15px;
+    font-weight: bold;
+    color: $color-primary;
+  }
+  .zodiac-grid {
+    grid-template-columns: repeat(2, 1fr);
+    margin-top: 30px;
+  }
+  .zodiac-item img {
+    width: 100px;
+    height: 100px;
+  }
   .aboutFengShui {
     margin-top: 0px;
   }

@@ -1,8 +1,26 @@
+.header-zodiac {
+  position: absolute;
+  bottom: 10px;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 80px;
+
+  a {
+    margin: 0 20px;
+    color: $color-primary;
+    font-weight: bold;
+    font-size: 25px;
+
+    &:hover {
+      color: #607d8b;
+    }
+  }
+}
 .zodiac-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 2rem;
-  // padding: 2rem;
   max-width: 1200px;
   margin: 0 auto;
   margin-top: 100px;
@@ -37,4 +55,20 @@
 
 .zodiac-item:hover img {
   border-color: $color-highlight;
+}
+.zodiac-back {
+  position: absolute;
+  bottom: 10px;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 80px;
+  margin: 0 20px;
+  color: $color-primary;
+  font-weight: bold;
+  font-size: 25px;
+
+  &:hover {
+    color: #607d8b;
+  }
 }

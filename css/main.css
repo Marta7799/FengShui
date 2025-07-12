@@ -549,6 +549,24 @@ ul {
   text-align: end;
 }
 
+.header-zodiac {
+  position: absolute;
+  bottom: 10px;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 80px;
+}
+.header-zodiac a {
+  margin: 0 20px;
+  color: darkolivegreen;
+  font-weight: bold;
+  font-size: 25px;
+}
+.header-zodiac a:hover {
+  color: #607d8b;
+}
+
 .zodiac-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -590,6 +608,22 @@ ul {
   border-color: #c9a036;
 }
 
+.zodiac-back {
+  position: absolute;
+  bottom: 10px;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 80px;
+  margin: 0 20px;
+  color: darkolivegreen;
+  font-weight: bold;
+  font-size: 25px;
+}
+.zodiac-back:hover {
+  color: #607d8b;
+}
+
 header,
 .custom-header,
 .custom-footer {
@@ -602,7 +636,7 @@ header,
 
 .custom-header {
   min-height: 200px;
-  background: url("../../images/napis-header.jpg") no-repeat center;
+  background: url("../images/napis-header.jpg") no-repeat center;
   background-size: contain;
 }
 
@@ -762,6 +796,11 @@ header,
   #nav-links a {
     font-size: 25px;
   }
+  .zodiac-grid {
+    grid-template-columns: repeat(3, 1fr);
+    padding: 5px;
+    margin-top: 80px;
+  }
   .bg-logo {
     background: url("../../images/logo-transparent.png") no-repeat;
     background-position: left 5vw top;
@@ -850,6 +889,22 @@ header,
     font-weight: bold;
     color: darkolivegreen;
     margin: 0 10px;
+  }
+  .header-zodiac {
+    margin-right: 35px;
+  }
+  .header-zodiac a {
+    font-size: 15px;
+    font-weight: bold;
+    color: darkolivegreen;
+  }
+  .zodiac-grid {
+    grid-template-columns: repeat(2, 1fr);
+    margin-top: 30px;
+  }
+  .zodiac-item img {
+    width: 100px;
+    height: 100px;
   }
   .aboutFengShui {
     margin-top: 0px;
