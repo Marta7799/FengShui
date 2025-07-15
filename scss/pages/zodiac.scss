@@ -133,16 +133,15 @@ th {
 
 .back-zodiac a {
   font-weight: bold;
-  font-size: 25px;
+  font-size: 30px;
   color: $color-primary;
   position: absolute;
-  top: 40px;
-  right: 40px;
+  top: 100px;
+  right: 100px;
   text-align: right;
   z-index: 1000;
 }
 
-.header-zodiac a:hover,
 .back-zodiac a:hover {
   color: $color-highlight;
   cursor: pointer;
