@@ -109,6 +109,24 @@
   .inline-form button {
     width: 100%;
   }
+  .body-rat {
+    padding: 0 40px;
+  }
+
+  .zodiac-title {
+    font-size: 38px;
+    margin-top: 80px;
+    margin-bottom: 80px;
+  }
+
+  th,
+  td {
+    font-size: 18px;
+  }
+
+  th {
+    font-size: 20px;
+  }
 }
 
 @media (max-width: 750px) {
@@ -131,13 +149,10 @@
     color: $color-primary;
     margin: 0 10px;
   }
-  .header-zodiac {
-    margin-right: 35px;
-  }
-  .header-zodiac a {
-    font-size: 15px;
-    font-weight: bold;
-    color: $color-primary;
+  .back-zodiac a {
+    font-size: 18px;
+    top: 20px;
+    right: 20px;
   }
   .zodiac-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -146,6 +161,31 @@
   .zodiac-item img {
     width: 100px;
     height: 100px;
+  }
+  .body-rat {
+    padding: 0 20px;
+  }
+
+  .zodiac-title {
+    font-size: 22px;
+    flex-direction: column;
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 40px;
+  }
+
+  table {
+    font-size: 16px;
+  }
+
+  th,
+  td {
+    padding: 10px 12px;
+    font-size: 16px;
+  }
+
+  th {
+    font-size: 16px;
   }
   .aboutFengShui {
     margin-top: 0px;
@@ -255,7 +295,7 @@
     max-width: 100%;
   }
 }
-@media (max-width: 349px) {
+@media (max-width: 414px) {
   .custom-footer {
     padding: 10px;
   }
@@ -300,5 +340,31 @@
 
   .footer-left {
     display: none;
+  }
+  .body-rat {
+    padding: 0 10px;
+  }
+  .back-zodiac a {
+    font-size: 15px;
+    top: 10px;
+    right: 10px;
+  }
+  .zodiac-title {
+    font-size: 18px;
+    margin-top: 50px;
+  }
+
+  th,
+  td {
+    font-size: 14px;
+    padding: 8px 10px;
+  }
+
+  .sign-name {
+    font-size: 16px;
+  }
+
+  .body-rat::before {
+    background-size: 60%; /* zmniejsz tło na małych ekranach */
   }
 }

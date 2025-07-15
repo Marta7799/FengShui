@@ -168,8 +168,9 @@ function generateQiMenGrid() {
         "Moon",
         "Sun",
       ];
-      const sortedCells = data.cells.slice(0, 9);
-
+      const sortedCells = data.cells
+        .slice(0, 9)
+        .sort((a, b) => a.position - b.position);
       // Uzupełnij puste komórki domyślnymi
       for (let i = 0; i < 9; i++) {
         if (!sortedCells[i]) {
