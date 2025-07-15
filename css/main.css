@@ -29,6 +29,7 @@ h1,
 h3 {
   text-transform: uppercase;
   font-size: 34px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 h2 {
@@ -36,6 +37,7 @@ h2 {
   color: #c62828;
   margin-bottom: 20px;
   font-size: 30px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 label {
@@ -689,6 +691,7 @@ th {
 }
 
 .back-zodiac a {
+  font-family: "Cormorant Garamond", sans-serif;
   font-weight: bold;
   font-size: 30px;
   color: darkolivegreen;
@@ -1117,7 +1120,7 @@ header,
     max-width: 100%;
   }
 }
-@media (max-width: 414px) {
+@media (max-width: 480px) {
   .custom-footer {
     padding: 10px;
   }
