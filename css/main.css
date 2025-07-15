@@ -603,7 +603,7 @@ ul {
   left: 0;
   right: 0;
   bottom: 0;
-  background: url("../../images/zodiacs/ox-logo.png") no-repeat right center;
+  background: url("../images/zodiacs/ox-logo.png") no-repeat right center;
   background-size: contain;
   opacity: 0.2; /* przezroczystość samego obrazu */
   pointer-events: none;
