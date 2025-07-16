@@ -592,24 +592,73 @@ ul {
   border-color: #c9a036;
 }
 
-.body-rat {
+.body-zodiac {
   width: 100%;
   position: relative;
   background-color: rgba(255, 255, 255, 0.5); /* półprzezroczysty kolor */
   padding: 0 80px;
 }
 
-.body-rat::before {
+.body-zodiac::before {
   content: "";
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background: url("../images/zodiacs/ox-logo.png") no-repeat right center;
+  background-repeat: no-repeat;
+  background-position: right center;
   background-size: contain;
   opacity: 0.2; /* przezroczystość samego obrazu */
   pointer-events: none;
+}
+
+.body-zodiac[data-sign=rat]::before {
+  background-image: url("/images/zodiacs/rat-logo.png");
+}
+
+.body-zodiac[data-sign=ox]::before {
+  background-image: url("/images/zodiacs/ox-logo.png");
+}
+
+.body-zodiac[data-sign=dog]::before {
+  background-image: url("/images/zodiacs/dog-logo.png");
+}
+
+.body-zodiac[data-sign=dragon]::before {
+  background-image: url("/images/zodiacs/dragon-logo.png");
+}
+
+.body-zodiac[data-sign=goat]::before {
+  background-image: url("/images/zodiacs/goat-logo.png");
+}
+
+.body-zodiac[data-sign=horse]::before {
+  background-image: url("/images/zodiacs/horse-logo.png");
+}
+
+.body-zodiac[data-sign=monkey]::before {
+  background-image: url("/images/zodiacs/mokey-logo.png");
+}
+
+.body-zodiac[data-sign=pig]::before {
+  background-image: url("/images/zodiacs/pig-logo.png");
+}
+
+.body-zodiac[data-sign=rabbit]::before {
+  background-image: url("/images/zodiacs/rabbit-logo.png");
+}
+
+.body-zodiac[data-sign=rooster]::before {
+  background-image: url("/images/zodiacs/rooster-logo.png");
+}
+
+.body-zodiac[data-sign=snake]::before {
+  background-image: url("/images/zodiacs/snake-logo.png");
+}
+
+.body-zodiac[data-sign=tiger]::before {
+  background-image: url("/images/zodiacs/tiger-logo.png");
 }
 
 .zodiac-title {
@@ -697,7 +746,7 @@ th {
   font-size: 30px;
   color: darkolivegreen;
   position: absolute;
-  top: 100px;
+  top: 150px;
   right: 100px;
   text-align: right;
   z-index: 1000;
