@@ -176,13 +176,13 @@ th {
 }
 
 .back-zodiac a {
+  position: fixed;
+  right: 100px;
+  bottom: 20px;
   font-family: $font-family-main;
   font-weight: bold;
   font-size: 30px;
   color: $color-primary;
-  position: absolute;
-  top: 150px;
-  right: 100px;
   text-align: right;
   z-index: 1000;
 }
