@@ -49,13 +49,13 @@
 .body-zodiac::before {
   content: "";
   position: absolute;
-  top: 0;
+  top: 50px;
   left: 0;
   right: 0;
   bottom: 0;
   background-repeat: no-repeat;
-  background-position: right center;
-  background-size: contain;
+  background-position: right top;
+  background-size: 40%;
   opacity: 0.2; /* przezroczystość samego obrazu */
   pointer-events: none;
 }
@@ -190,4 +190,17 @@ th {
 .back-zodiac a:hover {
   color: $color-highlight;
   cursor: pointer;
+}
+.section-zodiac {
+  width: 70%;
+  margin-top: 80px;
+  margin-bottom: 80px;
+}
+
+.zodiac-name {
+  font-size: 36px;
+  margin-top: 20px;
+}
+.zodiac-description {
+  font-size: 24px;
 }

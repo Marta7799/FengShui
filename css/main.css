@@ -602,13 +602,13 @@ ul {
 .body-zodiac::before {
   content: "";
   position: absolute;
-  top: 0;
+  top: 50px;
   left: 0;
   right: 0;
   bottom: 0;
   background-repeat: no-repeat;
-  background-position: right center;
-  background-size: contain;
+  background-position: right top;
+  background-size: 40%;
   opacity: 0.2; /* przezroczystość samego obrazu */
   pointer-events: none;
 }
@@ -743,7 +743,7 @@ th {
 .back-zodiac a {
   position: fixed;
   right: 100px;
-  bottom: 20px; /* mniejszy odstęp od dołu */
+  bottom: 20px;
   font-family: "Cormorant Garamond", sans-serif;
   font-weight: bold;
   font-size: 30px;
@@ -755,6 +755,21 @@ th {
 .back-zodiac a:hover {
   color: #c9a036;
   cursor: pointer;
+}
+
+.section-zodiac {
+  width: 70%;
+  margin-top: 80px;
+  margin-bottom: 80px;
+}
+
+.zodiac-name {
+  font-size: 36px;
+  margin-top: 20px;
+}
+
+.zodiac-description {
+  font-size: 24px;
 }
 
 header,
@@ -1040,7 +1055,7 @@ header,
   }
   .back-zodiac a {
     font-size: 18px;
-    top: 20px;
+    bottom: 20px;
     right: 20px;
   }
   .zodiac-grid {
@@ -1213,8 +1228,8 @@ header,
   }
   .back-zodiac a {
     font-size: 15px;
-    top: 10px;
-    right: 10px;
+    bottom: 20px;
+    right: 20px;
   }
   .zodiac-title {
     font-size: 18px;
