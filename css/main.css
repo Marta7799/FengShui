@@ -766,6 +766,7 @@ th {
 .zodiac-name {
   font-size: 36px;
   margin-top: 20px;
+  text-align: left;
 }
 
 .zodiac-description {
@@ -1034,6 +1035,15 @@ header,
   th {
     font-size: 20px;
   }
+  .section-zodiac {
+    width: 85%;
+  }
+  .zodiac-name {
+    font-size: 32px;
+  }
+  .zodiac-description {
+    font-size: 22px;
+  }
 }
 @media (max-width: 750px) {
   body {
@@ -1086,6 +1096,16 @@ header,
   }
   th {
     font-size: 16px;
+  }
+  .section-zodiac {
+    width: 90%;
+    margin: 60px auto;
+  }
+  .zodiac-name {
+    font-size: 28px;
+  }
+  .zodiac-description {
+    font-size: 20px;
   }
   .aboutFengShui {
     margin-top: 0px;
@@ -1245,5 +1265,16 @@ header,
   }
   .body-rat::before {
     background-size: 60%; /* zmniejsz tło na małych ekranach */
+  }
+  .section-zodiac {
+    width: 95%;
+    margin: 40px auto;
+  }
+  .zodiac-name {
+    font-size: 24px;
+  }
+  .zodiac-description {
+    font-size: 18px;
+    text-align: justify;
   }
 }
