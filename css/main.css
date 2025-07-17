@@ -608,7 +608,7 @@ ul {
   bottom: 0;
   background-repeat: no-repeat;
   background-position: right top;
-  background-size: 40%;
+  background-size: 40% !important;
   opacity: 0.2; /* przezroczystość samego obrazu */
   pointer-events: none;
 }
@@ -1262,9 +1262,6 @@ header,
   }
   .sign-name {
     font-size: 16px;
-  }
-  .body-rat::before {
-    background-size: 60%; /* zmniejsz tło na małych ekranach */
   }
   .section-zodiac {
     width: 95%;
