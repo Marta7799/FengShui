@@ -1263,6 +1263,9 @@ header,
   .sign-name {
     font-size: 16px;
   }
+  .body-zodiac::before {
+    background-size: 40% !important; /* zmniejsz tło na małych ekranach */
+  }
   .section-zodiac {
     width: 95%;
     margin: 40px auto;
