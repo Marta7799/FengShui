@@ -413,7 +413,7 @@ select {
   align-items: center;
   justify-content: center;
   gap: 20px;
-  background: rgba(47, 51, 30, 0.4) url("../images/backgroundAboutFengShui.jpg") no-repeat center;
+  background: rgba(47, 51, 30, 0.4) url("../images/backgroundAboutFengShui.webp") no-repeat center;
   background-size: cover;
 }
 
@@ -467,7 +467,7 @@ ul {
   align-items: center;
   justify-content: center;
   justify-content: space-between;
-  background: rgba(47, 51, 30, 0.4) url("../images/backgroundAbouUs.png") no-repeat center;
+  background: rgba(47, 51, 30, 0.4) url("../images/backgroundAbouUs.webp") no-repeat center;
   background-size: cover;
 }
 
@@ -614,51 +614,51 @@ ul {
 }
 
 .body-zodiac[data-sign=rat]::before {
-  background-image: url("../images/zodiacs/rat-logo.png");
+  background-image: url("../images/zodiacs/rat-logo.webp");
 }
 
 .body-zodiac[data-sign=ox]::before {
-  background-image: url("../images/zodiacs/ox-logo.png");
+  background-image: url("../images/zodiacs/ox-logo.webp");
 }
 
 .body-zodiac[data-sign=dog]::before {
-  background-image: url("../images/zodiacs/dog-logo.png");
+  background-image: url("../images/zodiacs/dog-logo.webp");
 }
 
 .body-zodiac[data-sign=dragon]::before {
-  background-image: url("../images/zodiacs/dragon-logo.png");
+  background-image: url("../images/zodiacs/dragon-logo.webp");
 }
 
 .body-zodiac[data-sign=goat]::before {
-  background-image: url("../images/zodiacs/goat-logo.png");
+  background-image: url("../images/zodiacs/goat-logo.webp");
 }
 
 .body-zodiac[data-sign=horse]::before {
-  background-image: url("../images/zodiacs/horse-logo.png");
+  background-image: url("../images/zodiacs/horse-logo.webp");
 }
 
 .body-zodiac[data-sign=monkey]::before {
-  background-image: url("../images/zodiacs/mokey-logo.png");
+  background-image: url("../images/zodiacs/mokey-logo.webp");
 }
 
 .body-zodiac[data-sign=pig]::before {
-  background-image: url("../images/zodiacs/pig-logo.png");
+  background-image: url("../images/zodiacs/pig-logo.webp");
 }
 
 .body-zodiac[data-sign=rabbit]::before {
-  background-image: url("../images/zodiacs/rabbit-logo.png");
+  background-image: url("../images/zodiacs/rabbit-logo.webp");
 }
 
 .body-zodiac[data-sign=rooster]::before {
-  background-image: url("../images/zodiacs/rooster-logo.png");
+  background-image: url("../images/zodiacs/rooster-logo.webp");
 }
 
 .body-zodiac[data-sign=snake]::before {
-  background-image: url("../images/zodiacs/snake-logo.png");
+  background-image: url("../images/zodiacs/snake-logo.webp");
 }
 
 .body-zodiac[data-sign=tiger]::before {
-  background-image: url("../images/zodiacs/tiger-logo.png");
+  background-image: url("../images/zodiacs/tiger-logo.webp");
 }
 
 .zodiac-title {
@@ -951,7 +951,7 @@ header,
     margin-top: 80px;
   }
   .bg-logo {
-    background: url("../../images/logo-transparent.png") no-repeat;
+    background: url("../../images/logo-transparent.webp") no-repeat;
     background-position: left 5vw top;
     background-size: 15% auto;
   }
